@@ -1,0 +1,10 @@
+{
+  "name": "zhu-li",
+  "version": "2.6.0",
+  "description": "Personal assistant bot who does the thing",
+  "main": "Bot.js",
+  "author": "CodebenderSu",
+  "dependencies": {
+    "discord.js": "^11.3.2"
+  }
+}
