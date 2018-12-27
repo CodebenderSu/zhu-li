@@ -22,13 +22,13 @@ const commandHandler = (message, command, args) => {
     case 'ROLE': //"!role rolename"
       role(message, args);
       break;
-    case 'DO THE THING': //"!do the thing"
+    case 'DOTHETHING': //"!do the thing"
       doTheThing(message);
       break;
     case 'BRAVO': //"!bravo"
       bravo(message);
       break;
-    case 'WHOIS': //"!whois user"
+    case 'WHOIS': //"!whois @user"
       whoIs(message);
       break;
     default: // Unknown command response

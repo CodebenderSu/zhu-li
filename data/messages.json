@@ -2,7 +2,8 @@
   "Error": {
     "UnknownCMD": "I haven't learned that command yet. My dev is still working hard on adding new ones though. :neutral_face:",
     "BotNoPerm": "I don't have permission to do that. :confused:  Tell an admin to do the thing.",
-    "UserNoPerm": "You aren't allowed to use that command. :shrug:"
+    "UserNoPerm": "You aren't allowed to use that command. :shrug:",
+    "CMDNoAccess": "That command can't be used in DMs. :thinking:"
   },
   "Help": {
     "Name": "Help",
