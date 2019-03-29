@@ -1,5 +1,5 @@
 const Discord = require('Discord.js');
-const { WhoIs, Error } = require('../data/messages.json');
+const { WhoIs, Error } = require('../settings/messages.json');
 
 const whoIs = (message) => {
   if (!message.guild) {

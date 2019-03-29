@@ -1,4 +1,4 @@
-const { Role } = require('../data/messages.json');
+const { Role } = require('../settings/messages.json');
 
 const role = (message, command) => {
   const roles = message.member.roles.map(r => r.id).splice(1).join(', ');

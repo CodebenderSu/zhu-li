@@ -11,7 +11,7 @@ Current commands include:
 * Ping - Pong!
 * Purge - Purges a number of posts
 * WhoIs - User lookup
-* DoTheThing - Does something random
+* Do The Thing - Does something random
 * Bravo - Bravo, sir
 
 Planned features include:
@@ -24,7 +24,7 @@ Planned features include:
 Zhu Li is built on NPM and Node using [Discord.js](https://discord.js.org/#/).
 
 ## How to Use It
-1. Open up "config.json" in the data folder. Change Token to your personal bot token. Optionally, fill in the OwnerID. Save.
+1. Open up "config.json" in the settings folder. Change Token to your personal bot token. Optionally, fill in the OwnerID. Save.
 2. In the command line/shell, navigate to the folder containing the bot ("cd SomeDirectory", ect.).
 3. Type "npm i". Wait for it to finish.
 4. Type "node Bot.js". Bot will show as online with a checkpoint being logged in the console. The bot is now online.

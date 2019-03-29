@@ -4,8 +4,9 @@ const purge = require('./commands/Purge');
 const role = require('./commands/Role');
 const doTheThing = require('./commands/DoTheThing');
 const bravo = require('./commands/Bravo');
-const whoIs = require('./commands/whoIs');
-const { Error } = require('./data/messages.json');
+const whoIs = require('./commands/WhoIs');
+const info = require('./commands/Info');
+const { Error } = require('./settings/messages.json');
 //const { OwnerID } = require('./data/config.json');
 
 const commandHandler = (message, command, args) => {
@@ -22,14 +23,17 @@ const commandHandler = (message, command, args) => {
     case 'ROLE': //"!role rolename"
       role(message, args);
       break;
-    case 'DOTHETHING': //"!do the thing"
-      doTheThing(message);
+    case 'DO': //"!do the thing"
+      doTheThing(message, args);
       break;
     case 'BRAVO': //"!bravo"
       bravo(message);
       break;
     case 'WHOIS': //"!whois @user"
       whoIs(message);
+      break;
+    case 'INFO': //"!info args"
+      info(message, args);
       break;
     default: // Unknown command response
       message.channel.send(Error.UnknownCMD);

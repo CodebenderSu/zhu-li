@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const commandParser = require('./CommandParser');
 const blackBox = require('./BlackBox');
-const { Token, Prefix } = require('./data/config.json');
+const { Token, Prefix } = require('./settings/config.json');
 
 /////////////////////* BOT INITIALIZATION *///////////////////////
 const client = new Discord.Client();

@@ -1,0 +1,71 @@
+{
+  "Error": {
+    "UnknownCMD": "I haven't learned that command yet. My dev is still working hard on adding new ones though. :neutral_face:",
+    "BotNoPerm": "I don't have permission to do that. :confused:  Tell an admin to do the thing.",
+    "UserNoPerm": "You aren't allowed to use that command. :shrug:",
+    "CMDNoAccess": "That command can't be used in DMs. :thinking:"
+  },
+  "Help": {
+    "Name": "Help",
+    "Desc": "Brings up this message"
+  },
+  "Ping": {
+    "Name": "Ping",
+    "Desc": "Pong!",
+    "Response": {
+      "Pong": "Pong!"
+    }
+  },
+  "Purge": {
+    "Name": "Purge",
+    "Desc": "Deletes messages by 'n' number of messages (<14 days old)",
+    "Args": "n",
+    "Response": {
+      "CannotPurgeA": "I can't purge by",
+      "CannotPurgeB": "number of posts. :thinking:",
+      "TooOldToPurge": "Some of the posts you want me to delete are too old (>14 days) for me to delete. :confused: Try entering a smaller number."
+    }
+  },
+  "Role": {
+    "Name": "Role",
+    "Desc": "Add/remove roles",
+    "Args": "name",
+    "Response": {
+      "RoleDNE": "That role doesn't exist! :shrug:",
+      "RoleAdd": "role added!",
+      "RoleMinus": "role removed!"
+    }
+  },
+  "DoTheThing": {
+    "Name": "Do The Thing",
+    "Desc": "I can't read your mind, but I'll do something",
+    "Response": {
+      "ThingA": "https://gph.is/2GYKm20",
+      "ThingB": "https://gph.is/2GVXzZE",
+      "ThingC": "https://gph.is/2IR4c03",
+      "ThingD": "https://gph.is/2GVYXvr",
+      "ThingE": "https://gph.is/2JEK4iI",
+      "ThingF": "https://gph.is/2JGXVVY"
+    }
+  },
+  "Bravo": {
+    "Name": "Bravo",
+    "Desc": "Bravo, sir",
+    "Response": {
+      "Bravo": "https://i.imgur.com/ttCJT5z.gif"
+    }
+  },
+  "WhoIs": {
+    "Name": "WhoIs",
+    "Desc": "In depth user analysis",
+    "Args": "@user",
+    "Response": {
+      "MissingArg": "You need to \"@\" mention a user to properly use this command. :confused:"
+    }
+  },
+  "Info": {
+    "Name": "Info",
+    "Desc": "Owner only command",
+    "Args": "chapter"
+  }
+}

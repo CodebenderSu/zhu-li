@@ -1,4 +1,4 @@
-const { BlackBoxChannel } = require('./data/config.json');
+const { BlackBoxChannel } = require('./settings/config.json');
 
 const blackBox = (message) => {
   if (!BlackBoxChannel) return;

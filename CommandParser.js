@@ -1,6 +1,6 @@
 const commandHandler = require('./CommandHandler')
-const { OwnerID } = require('./data/config.json');
-const { Error, Ping, Bravo } = require('./data/messages.json');
+const { OwnerID } = require('./settings/config.json');
+const { Error, Ping, Bravo } = require('./settings/messages.json');
 
 const commandParser = (message, rawCommand) => {
   const args = rawCommand.toUpperCase().trim().split(/ +/g);

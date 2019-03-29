@@ -1,6 +1,6 @@
 const Discord = require('Discord.js');
-const ref = require('../data/messages.json');
-const { Prefix } = require('../data/config.json');
+const ref = require('../settings/messages.json');
+const { Prefix } = require('../settings/config.json');
 
 const helpBuilder = () => { // Builds the string to be returned
   let helpStr = ``; // Initiate String

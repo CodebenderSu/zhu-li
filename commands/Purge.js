@@ -1,4 +1,4 @@
-const { Error, Purge } = require('../data/messages.json');
+const { Error, Purge } = require('../settings/messages.json');
 
 const purge = (message, args) => {
   const count = args[0]
@@ -13,7 +13,11 @@ const purge = (message, args) => {
     return;
   } else {
     if (parseInt(count)) {
-      message.channel.bulkDelete(count);
+      message.channel.bulkDelete(count, true)
+        .catch(() => {
+          message.channel.send(`${Purge.Response.TooOldToPurge}`);
+          return;
+        });
       return;
     } else {
       message.channel.send(`${Purge.Response.CannotPurgeA} "${args.join(' ')}" ${Purge.Response.CannotPurgeB}`);

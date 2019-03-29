@@ -1,11 +1,11 @@
 {
   "name": "zhu-li",
-  "version": "2.6.1",
+  "version": "2.6.3",
   "description": "Personal assistant bot who does the thing",
   "main": "Bot.js",
   "author": "CodebenderSu",
   "dependencies": {
     "discord.js": "^11.3.2",
-    "node-gyp": "^3.8.0"
+    "nodemon": "^1.18.10"
   }
 }
