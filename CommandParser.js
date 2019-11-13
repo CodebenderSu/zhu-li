@@ -1,5 +1,5 @@
 const commandHandler = require('./CommandHandler')
-const { OwnerID } = require('./settings/config.json');
+const { main } = require('./settings/config.js');
 const { Error, Ping, Bravo } = require('./settings/messages.json');
 
 const commandParser = (message, rawCommand) => {

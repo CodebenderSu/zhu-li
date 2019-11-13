@@ -1,9 +1,11 @@
-const { BlackBoxChannel } = require('./settings/config.json');
+const { main } = require('./settings/config.js');
+
+const { blackBoxChannel } = main;
 
 const blackBox = (message) => {
-  if (!BlackBoxChannel) return;
+  if (!blackBoxChannel) return;
   else {
-    if (message.channel.name == BlackBoxChannel) {
+    if (message.channel.name == blackBoxChannel) {
       message.delete();
     } else return;
   };

@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
 const commandParser = require('./CommandParser');
 const blackBox = require('./BlackBox');
-const { Token, Prefix } = require('./settings/config.json');
+const { main } = require('./settings/config.js');
 
+const { token, prefix } = main;
 /////////////////////* BOT INITIALIZATION *///////////////////////
 const client = new Discord.Client();
 
-client.login(Token)
+client.login(token)
   .then(console.log('Getting you plugged in...'))
   .catch(console.error);
 client.on('ready', () => {
@@ -16,14 +17,14 @@ client.on('ready', () => {
 client.on('message', (message) => {
   blackBox(message);
   // Check message first for prefix or mention, then parse command
-  if (!message.content.startsWith(Prefix) || message.author.bot) {
+  if (!message.content.startsWith(prefix) || message.author.bot) {
     if (!message.content.startsWith(client.user) || message.author.bot) return;
     else if (message.content.startsWith(client.user)) {
       let rawCommand = message.content.slice((`${client.user}`).length + 1);
       commandParser(message, rawCommand);
     };
-  } else if (message.content.startsWith(Prefix)) {
-    let rawCommand = message.content.slice(Prefix.length);
+  } else if (message.content.startsWith(prefix)) {
+    let rawCommand = message.content.slice(prefix.length);
     commandParser(message, rawCommand);
   };
 });

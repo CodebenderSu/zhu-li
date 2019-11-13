@@ -66,6 +66,10 @@
   "Info": {
     "Name": "Info",
     "Desc": "Owner only command",
-    "Args": "chapter"
+    "Args": "chapter",
+    "Response": {
+      "MissingArg": "You need to tell me which chapter to give you info for",
+      "ChapterUnknown": "That's not a valid chapter"
+    }
   }
 }
