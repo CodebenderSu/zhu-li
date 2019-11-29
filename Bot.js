@@ -1,9 +1,10 @@
+require('dotenv').config();
 const Discord = require('discord.js');
 const commandParser = require('./CommandParser');
 const blackBox = require('./BlackBox');
-const { main } = require('./settings/config.js');
-
+const { main } = require(`./settings/${process.env.ENV_CONFIG}config.js`);
 const { token, prefix } = main;
+
 /////////////////////* BOT INITIALIZATION *///////////////////////
 const client = new Discord.Client();
 

@@ -7,7 +7,7 @@ const bravo = require('./commands/Bravo');
 const whoIs = require('./commands/WhoIs');
 const info = require('./commands/Info');
 const { Error } = require('./settings/messages.json');
-//const { OwnerID } = require('./data/config.json');
+//const { OwnerID } = require(`./settings/${process.env.ENV_CONFIG}config.js`);
 
 const commandHandler = (message, command, args) => {
   switch(command) {

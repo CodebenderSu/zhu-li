@@ -1,4 +1,4 @@
-const { main } = require('./settings/config.js');
+const { main } = require(`./settings/${process.env.ENV_CONFIG}config.js`);
 
 const { blackBoxChannel } = main;
 

@@ -1,6 +1,6 @@
 const Discord = require('Discord.js');
 const ref = require('../settings/messages.json');
-const { main } = require('../settings/config.js');
+const { main } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
 
 const { prefix } = main;
 

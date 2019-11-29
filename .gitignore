@@ -1,2 +1,3 @@
 node_modules
-settings/myconfig.js
+settings/dev.config.js
+.env

@@ -69,7 +69,7 @@
     "Args": "chapter",
     "Response": {
       "MissingArg": "You need to tell me which chapter to give you info for",
-      "ChapterUnknown": "That's not a valid chapter"
+      "ChapterUnknown": "Invalid chapter provided: "
     }
   }
 }
