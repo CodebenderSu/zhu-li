@@ -16,7 +16,14 @@ const infoChapters = {
       To create or edit chapters, please use my "config.js" file and use a valid embed format outlined in Discord.js documentation.\n
       Please see [here](https://discord.js.org/#/docs/main/stable/class/RichEmbed) or [here](https://anidiots.guide/first-bot/using-embeds-in-messages) for more details
       `)
-    .setTimestamp()
+    .setTimestamp(),
+  blackbox: new Discord.RichEmbed()
+    .setColor('000000')
+    .setAuthor('The Black Box')
+    .setDescription(`
+      This channel can be used to rant. Any messages will be deleted automatically.
+    `)
+    .setThumbnail('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/209/milky-way_1f30c.png')
 };
 
 module.exports = { main, infoChapters };

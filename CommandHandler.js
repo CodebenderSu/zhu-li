@@ -6,6 +6,7 @@ const doTheThing = require('./commands/DoTheThing');
 const bravo = require('./commands/Bravo');
 const whoIs = require('./commands/WhoIs');
 const info = require('./commands/Info');
+const inspect = require('./commands/Inspect');
 const { Error } = require('./settings/messages.json');
 //const { OwnerID } = require(`./settings/${process.env.ENV_CONFIG}config.js`);
 
@@ -34,6 +35,9 @@ const commandHandler = (message, command, args) => {
       break;
     case 'INFO': //"!info args"
       info(message, args);
+      break;
+    case 'INSPECT': //"!inspect"
+      inspect(message);
       break;
     default: // Unknown command response
       message.channel.send(Error.UnknownCMD);

@@ -17,3 +17,5 @@ const info = (message, args) => {
 };
 
 module.exports = info;
+
+// Responses from the command seem to be a little asynchronous
