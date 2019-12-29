@@ -1,7 +1,6 @@
 const Discord = require('Discord.js');
 
 const { main } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
-const { Info } = require('../settings/messages.json');
 
 const inspect = (message) => {
   const { guild, member, channel, author } = message;

@@ -13,12 +13,16 @@ Current commands include:
 * WhoIs - User lookup
 * Do The Thing - Does something random
 * Bravo - Bravo, sir
+* Info - Displays an embed from config
+* Inspect - Provides server diagnostics
+* Prune - Prunes members
 
 Planned features include:
 
-* Role add/removal
-* Per guild custom role database, including an artificial 'alias' attribute that server owners may use as a shorthand for their roles
-* Addrole/delrole commands to add and remove roles from database with arguments for custom alias.
+* Self-assigned (reaction) roles
+* Per guild config settings. Blocks:
+ * Prefix command to change prefix
+ * Other configuration commands
 
 ## Dependencies
 Zhu Li is built on NPM and Node using [Discord.js](https://discord.js.org/#/).

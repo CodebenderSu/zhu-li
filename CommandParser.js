@@ -1,6 +1,5 @@
 const commandHandler = require('./CommandHandler')
 const { main } = require(`./settings/${process.env.ENV_CONFIG}config.js`);
-const { Error, Ping, Bravo } = require('./settings/messages.json');
 
 const commandParser = (message, rawCommand) => {
   const args = rawCommand.toUpperCase().trim().split(/ +/g);

@@ -1,10 +1,10 @@
 const ping = require('./commands/Ping');
 const help = require('./commands/Help');
 const purge = require('./commands/Purge');
-const role = require('./commands/Role');
 const doTheThing = require('./commands/DoTheThing');
 const bravo = require('./commands/Bravo');
 const whoIs = require('./commands/WhoIs');
+const prune = require('./commands/Prune');
 const info = require('./commands/Info');
 const inspect = require('./commands/Inspect');
 const { Error } = require('./settings/messages.json');
@@ -21,9 +21,6 @@ const commandHandler = (message, command, args) => {
     case 'PURGE': //"!purge n"
       purge(message, args);
       break;
-    case 'ROLE': //"!role rolename"
-      role(message, args);
-      break;
     case 'DO': //"!do the thing"
       doTheThing(message, args);
       break;
@@ -32,6 +29,9 @@ const commandHandler = (message, command, args) => {
       break;
     case 'WHOIS': //"!whois @user"
       whoIs(message);
+      break;
+    case 'PRUNE': //"!prune days"
+      prune(message, args);
       break;
     case 'INFO': //"!info args"
       info(message, args);

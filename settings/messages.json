@@ -3,7 +3,8 @@
     "UnknownCMD": "I haven't learned that command yet. My dev is still working hard on adding new ones though. :neutral_face:",
     "BotNoPerm": "I don't have permission to do that. :confused:  Tell an admin to do the thing.",
     "UserNoPerm": "You aren't allowed to use that command. :shrug:",
-    "CMDNoAccess": "That command can't be used in DMs. :thinking:"
+    "CMDNoAccess": "That command can't be used in DMs. :thinking:",
+    "CMDFailed": "Failed to run command. My diagnostics indicate the following issue:"
   },
   "Help": {
     "Name": "Help",
@@ -24,16 +25,6 @@
       "CannotPurgeA": "I can't purge by",
       "CannotPurgeB": "number of posts. :thinking:",
       "TooOldToPurge": "Some of the posts you want me to delete are too old (>14 days) for me to delete. :confused: Try entering a smaller number."
-    }
-  },
-  "Role": {
-    "Name": "Role",
-    "Desc": "Add/remove roles",
-    "Args": "name",
-    "Response": {
-      "RoleDNE": "That role doesn't exist! :shrug:",
-      "RoleAdd": "role added!",
-      "RoleMinus": "role removed!"
     }
   },
   "DoTheThing": {
@@ -63,13 +54,29 @@
       "MissingArg": "You need to \"@\" mention a user to properly use this command. :confused:"
     }
   },
+  "Prune": {
+    "Name": "Prune",
+    "Desc": "Prune inactive members",
+    "Args": "days",
+    "Response": {
+      "MissingArg": "You need to specify a number of days of inactivity to prune by",
+      "InvalidArg": "Invalid number of days specified. Must be a number between 1-30",
+      "PruneSuccessA": "Successfully pruned ",
+      "PruneSuccessB": " members :wave: ",
+      "PruneFailed": "Failed to prune :shrug: "
+    }
+  },
   "Info": {
     "Name": "Info",
-    "Desc": "Owner only command",
+    "Desc": "Creates RichEmbeds using chapters from the config",
     "Args": "chapter",
     "Response": {
       "MissingArg": "You need to tell me which chapter to give you info for",
       "ChapterUnknown": "Invalid chapter provided: "
     }
+  },
+  "Inspect": {
+    "Name": "Inspect",
+    "Desc": "Provides server diagnostics"
   }
 }
