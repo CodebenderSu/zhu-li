@@ -7,6 +7,7 @@ const whoIs = (message) => {
     return;
   } else {
     const member = message.mentions.members.first();
+    console.log(message.mentions.members)
     if (!member) return message.channel.send(WhoIs.Response.MissingArg);
     const { presence: { game}, user } = member;
     const embed = new Discord.RichEmbed()

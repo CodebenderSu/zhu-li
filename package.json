@@ -7,11 +7,12 @@
   "dependencies": {
     "discord.js": "^11.3.2",
     "dotenv": "^8.2.0",
+    "mongoose": "^5.9.16",
     "nodemon": "^1.18.10"
   },
   "scripts": {
     "start": "node Bot.js",
-    "start -d": "nodemon Bot.js"
+    "start-listening": "nodemon Bot.js"
   },
   "config": {
     "src": "./settings/config.js"
