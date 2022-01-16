@@ -1,7 +1,13 @@
-const { Ping } = require('../settings/messages.json');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
-const ping = (message) => {
-  message.channel.send(Ping.Response.Pong);
+const { main: { locale } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
+const { commands } = require(`../lang/${locale}.json`);
+
+module.exports = {
+	data: new SlashCommandBuilder()
+		.setName('ping')
+		.setDescription(commands.ping.desc),
+	async execute(interaction) {
+		await interaction.reply(commands.ping.response.pong);
+	}
 };
-
-module.exports = ping;

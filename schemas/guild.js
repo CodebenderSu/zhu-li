@@ -1,8 +1,10 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-export const guildSchema = new Schema({
+const Guild = new Schema({
   prefix: { type: String, default: '!' },
   ownerID: String,
   blackBoxChannel: [ String ],
-  infoChapters: [ ObjectId ]
+  infoChapters: [ Schema.Types.ObjectId ]
 });
+
+module.exports = model('Guild', Guild);

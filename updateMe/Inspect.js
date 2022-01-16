@@ -6,9 +6,9 @@ const inspect = (message) => {
   const { guild, member, channel, author } = message;
   const bans = guild.fetchBans().catch('null');
   const invites = guild.fetchInvites().catch('null');
-  const embed = new Discord.RichEmbed()
+  const embed = new Discord.MessageEmbed()
     .setAuthor(`Server Diagnostic`)
-    .setColor(member.displayHexColor == '#000000' ? '#e9e341' : member.displayHexColor)
+    .setColor(member ? member.displayHexColor == '#000000' ? '#e9e341' : member.displayHexColor : '#e9e341')
     .setThumbnail(guild.iconURL)
     .setFooter(`Responding to ${author.tag}`,
       'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/154/robot-face_1f916.png')

@@ -5,14 +5,18 @@
   "main": "Bot.js",
   "author": "CodebenderSu",
   "dependencies": {
-    "discord.js": "^11.3.2",
-    "dotenv": "^8.2.0",
-    "mongoose": "^5.9.16",
-    "nodemon": "^1.18.10"
+    "@discordjs/builders": "^0.11.0",
+    "@discordjs/rest": "^0.2.0-canary.0",
+    "discord-api-types": "^0.26.1",
+    "discord.js": "^13.6.0",
+    "dotenv": "^8.6.0",
+    "mongoose": "^5.13.14",
+    "nodemon": "^1.19.4"
   },
   "scripts": {
     "start": "node Bot.js",
-    "start-listening": "nodemon Bot.js"
+    "start-r": "nodemon Bot.js",
+    "start-rd": "node utils/deployCommands.js && nodemon Bot.js"
   },
   "config": {
     "src": "./settings/config.js"

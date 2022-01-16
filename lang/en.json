@@ -1,0 +1,83 @@
+{
+  "commands": {
+    "help": {
+      "name": "Help",
+      "desc": "Lists all available commands and description"
+    },
+    "ping": {
+      "name": "Ping",
+      "desc": "Pong!",
+      "response": {
+        "pong": "Pong!"
+      }
+    },
+    "purge": {
+      "name": "Purge",
+      "desc": "Deletes messages by 'n' number of messages (<14 days old)",
+      "args": {
+        "n": "Number of message to delete"
+      },
+      "response": {
+        "success": "Purged __n__ posts successfully!",
+        "invalid": "I can't purge by __n__ number of posts. :thinking:",
+        "noscope": "Some of the posts you want me to delete are too old (>14 days) for me to delete. :confused: Try entering a smaller number."
+      }
+    },
+    "bravo": {
+      "name": "Bravo",
+      "desc": "Bravo, sir",
+      "response": {
+        "bravo": "https://i.imgur.com/ttCJT5z.gif"
+      }
+    },
+    "whois": {
+      "name": "WhoIs",
+      "desc": "In depth user analysis",
+      "args": "@user",
+      "response": {
+        "MissingArg": "You need to \"@\" mention a user to properly use this command. :confused:"
+      }
+    },
+    "prune": {
+      "name": "Prune",
+      "desc": "Prune inactive members",
+      "args": "days",
+      "response": {
+        "MissingArg": "You need to specify a number of days of inactivity to prune by",
+        "InvalidArg": "Invalid number of days specified. Must be a number between 1-30",
+        "PruneSuccessA": "Successfully pruned ",
+        "PruneSuccessB": " members :wave: ",
+        "PruneFailed": "Failed to prune :shrug: "
+      }
+    },
+    "info": {
+      "name": "Info",
+      "desc": "Creates MessageEmbeds using chapters from the config",
+      "args": "chapter",
+      "response": {
+        "MissingArg": "You need to tell me which chapter to give you info for",
+        "ChapterUnknown": "Invalid chapter provided: "
+      }
+    },
+    "inspect": {
+      "name": "Inspect",
+      "desc": "Provides server diagnostics"
+    }
+  },
+  "errors": {
+    "unknown": "I haven't learned that command yet. My dev is still working hard on adding new ones though. :neutral_face:",
+    "noPermsBot": "I don't have permission to do that. :confused:  Tell an admin to do the thing.",
+    "noPermsUser": "You aren't allowed to use that command. :shrug:",
+    "noAccess": "That command can't be used in DMs. :thinking:",
+    "fail": "Failed to run command. My diagnostics indicate the following issue:"
+  },
+  "greetings": [
+    "Hello",
+    "Hi there",
+    "Hey",
+    "Howdy",
+    "Greetings",
+    "Hi",
+    "Hey there"
+  ]
+}

@@ -1,29 +1,41 @@
-const { Error, Purge } = require('../settings/messages.json');
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { Permissions } = require('discord.js');
+// const wait = require('util').promisify(setTimeout);
 
-const purge = (message, args) => {
-  const count = args[0]
-  if (!message.guild) {
-    message.author.send(Error.CMDNoAccess);
-    return;
-  } else if (!message.guild.me.hasPermission('MANAGE_MESSAGES')) {
-    message.channel.send(Error.BotNoPerm);
-    return;
-  } else if (!message.member.hasPermission('MANAGE_MESSAGES')) {
-    message.channel.send(Error.UserNoPerm);
-    return;
-  } else {
-    if (parseInt(count)) {
-      message.channel.bulkDelete(count, true)
-        .catch(() => {
-          message.channel.send(`${Purge.Response.TooOldToPurge}`);
+const { main: { locale } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
+const { commands, errors } = require(`../lang/${locale}.json`);
+
+module.exports = {
+	data: new SlashCommandBuilder()
+		.setName('purge')
+		.setDescription(commands.purge.desc)
+    .addStringOption(option =>
+  		option.setName('n')
+  			.setDescription(commands.purge.args.n)
+  			.setRequired(true)),
+	async execute(interaction) {
+    await interaction.deferReply({ ephemeral: true });
+    const n = interaction.options.getString('n');
+
+    if (!interaction.guild) {
+      await interaction.editReply(errors.noAccess); return;
+    };
+    if (!interaction.guild.me.permissions.has(Permissions.MANAGE_MESSAGES)) {
+      await interaction.editReply(errors.noPermsBot); return;
+    };
+    if (!interaction.member.permissions.has(Permissions.MANAGE_MESSAGES)) {
+      await interaction.editReply(errors.noPermsUser); return;
+    };
+    if (/^\d+$/.test(n)) {
+      await interaction.channel.bulkDelete(n, true)
+        .catch(async () => {
+          await interaction.editReply(commands.purge.response.noscope);
           return;
         });
-      return;
+      await interaction.editReply(commands.purge.response.success.replace('__n__', n));
     } else {
-      message.channel.send(`${Purge.Response.CannotPurgeA} "${args.join(' ')}" ${Purge.Response.CannotPurgeB}`);
-      return;
+      await interaction.editReply(commands.purge.response.invalid.replace('__n__', n));
     };
-  };
+    return;
+	}
 };
-
-module.exports = purge;

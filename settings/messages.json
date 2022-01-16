@@ -68,7 +68,7 @@
   },
   "Info": {
     "Name": "Info",
-    "Desc": "Creates RichEmbeds using chapters from the config",
+    "Desc": "Creates MessageEmbeds using chapters from the config",
     "Args": "chapter",
     "Response": {
       "MissingArg": "You need to tell me which chapter to give you info for",

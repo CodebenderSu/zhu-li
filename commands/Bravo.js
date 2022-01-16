@@ -1,7 +1,13 @@
-const { Bravo } = require('../settings/messages.json');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
-const bravo = (message) => {
-  message.channel.send(Bravo.Response.Bravo);
-}
+const { main: { locale } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
+const { commands } = require(`../lang/${locale}.json`);
 
-module.exports = bravo;
+module.exports = {
+	data: new SlashCommandBuilder()
+		.setName('bravo')
+		.setDescription(commands.bravo.desc),
+	async execute(interaction) {
+		await interaction.reply(commands.bravo.response.bravo);
+	}
+};
