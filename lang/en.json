@@ -15,10 +15,12 @@
       "name": "Purge",
       "desc": "Deletes messages by 'n' number of messages (<14 days old)",
       "args": {
-        "n": "Number of message to delete"
+        "n": "Number of message to delete",
+        "target": "Only purge posts by specified user"
       },
       "response": {
         "success": "Purged __n__ posts successfully!",
+        "successWithTarget": "Purged __n__ posts from `__t__`!",
         "invalid": "I can't purge by __n__ number of posts. :thinking:",
         "noscope": "Some of the posts you want me to delete are too old (>14 days) for me to delete. :confused: Try entering a smaller number."
       }
