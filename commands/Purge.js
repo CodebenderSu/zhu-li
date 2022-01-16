@@ -9,17 +9,19 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('purge')
 		.setDescription(commands.purge.desc)
-    .addStringOption(option =>
+    .addIntegerOption(option =>
   		option.setName('n')
   		.setDescription(commands.purge.args.n)
-  		.setRequired(true))
+			.setMinValue(1)
+			.setMaxValue(100)
+			.setRequired(true))
     .addUserOption(option =>
       option.setName('target')
       .setDescription(commands.purge.args.target))
   ,
 	async execute(interaction) {
     await interaction.deferReply({ ephemeral: true });
-    const n = interaction.options.getString('n');
+    const n = interaction.options.getInteger('n');
     const t = interaction.options.getUser('target');
 // Handle DM no access
     if (!interaction.guild) {
@@ -33,7 +35,7 @@ module.exports = {
       await interaction.editReply(errors.noPermsUser); return;
     };
 // Purge logic
-    if (/^\d+$/.test(n)) {
+    if (n > 0 && n <= 100) { // /^\d+$/.test(n)
       // Purge messages by target
       if (t) {
         const username = `${t.username}#${t.discriminator}`;
@@ -74,9 +76,9 @@ module.exports = {
           });
       };
     } else {
-    // Handle invalid number
+    // Handle invalid integer
       await interaction.editReply(commands.purge.response.invalid.replace('__n__', n));
+			return;
     };
-    return;
 	}
 };

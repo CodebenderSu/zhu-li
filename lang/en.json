@@ -13,16 +13,16 @@
     },
     "purge": {
       "name": "Purge",
-      "desc": "Deletes messages by 'n' number of messages (<14 days old)",
+      "desc": "Deletes 'n' number of messages, up to 100 at a time (<14 days old)",
       "args": {
-        "n": "Number of message to delete",
+        "n": "Number of messages to delete (between 1 - 100)",
         "target": "Only purge posts by specified user"
       },
       "response": {
-        "success": "Purged __n__ posts successfully!",
-        "successWithTarget": "Purged __n__ posts from `__t__`!",
-        "invalid": "I can't purge by __n__ number of posts. :thinking:",
-        "noscope": "Some of the posts you want me to delete are too old (>14 days) for me to delete. :confused: Try entering a smaller number."
+        "success": "Purged `__n__` posts successfully!",
+        "successWithTarget": "Purged `__n__` posts from `__t__`!",
+        "invalid": "I can't purge `__n__` posts :thinking: \n\nTry entering a number between 1 - 100",
+        "noscope": "Some of the posts you want me to delete are older than 14 days :confused: \n\nTry entering a smaller number"
       }
     },
     "bravo": {
