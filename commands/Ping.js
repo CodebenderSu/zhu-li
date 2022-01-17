@@ -8,6 +8,6 @@ module.exports = {
 		.setName('ping')
 		.setDescription(commands.ping.desc),
 	async execute(interaction) {
-		await interaction.reply(commands.ping.response.pong);
+		await interaction.reply(commands.ping.response.success);
 	}
 };

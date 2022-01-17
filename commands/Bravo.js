@@ -8,6 +8,6 @@ module.exports = {
 		.setName('bravo')
 		.setDescription(commands.bravo.desc),
 	async execute(interaction) {
-		await interaction.reply(commands.bravo.response.bravo);
+		await interaction.reply(commands.bravo.response.success);
 	}
 };
