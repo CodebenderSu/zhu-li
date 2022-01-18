@@ -1,18 +1,23 @@
 {
   "commands": {
     "help": {
-      "name": "Help",
-      "desc": "Lists all available commands and description"
+      "name": "help",
+      "desc": "Lists all available commands and description",
+      "response": {
+        "embedDesc": "Hello `__u__`, below are commands you may use to tell me what to do. All commands are accessible using `/`.",
+        "embedFoot": "Responding to __u__",
+        "embedField1Name": "Command Reference"
+      }
     },
     "ping": {
-      "name": "Ping",
+      "name": "ping",
       "desc": "Pong!",
       "response": {
         "success": "Pong!"
       }
     },
     "purge": {
-      "name": "Purge",
+      "name": "purge",
       "desc": "Deletes 'n' number of messages, up to 100 at a time (<14 days old)",
       "args": {
         "n": "Number of messages to delete (between 1 - 100)",
@@ -26,7 +31,7 @@
       }
     },
     "bravo": {
-      "name": "Bravo",
+      "name": "bravo",
       "desc": "Bravo, sir",
       "response": {
         "success": "https://i.imgur.com/ttCJT5z.gif"
@@ -41,7 +46,7 @@
       }
     },
     "prune": {
-      "name": "Prune",
+      "name": "prune",
       "desc": "Prune inactive members",
       "args": {
         "days": "Days of inactivity to prune by (between 1 - 30)"

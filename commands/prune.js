@@ -6,7 +6,7 @@ const { commands } = require(`../lang/${locale}.json`);
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('prune')
+		.setName(commands.prune.name)
 		.setDescription(commands.prune.desc)
     .addIntegerOption(option =>
   		option.setName('days')
@@ -27,7 +27,7 @@ module.exports = {
         .setCustomId('no')
         .setLabel('Cancel')
         .setStyle('DANGER'))
-    const filter = i => (i.customId === 'yes' || i.customId === 'no') && i.user.id === interaction.member.id;
+    const filter = i => (i.customId === 'yes' || i.customId === 'no') && i.user.id === interaction.user.id;
     const collector = interaction.channel.createMessageComponentCollector({ filter, time: 10000 });
 // Handle DM no access
     if (!interaction.guild) {

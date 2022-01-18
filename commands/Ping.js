@@ -5,7 +5,7 @@ const { commands } = require(`../lang/${locale}.json`);
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('ping')
+		.setName(commands.ping.name)
 		.setDescription(commands.ping.desc),
 	async execute(interaction) {
 		await interaction.reply(commands.ping.response.success);

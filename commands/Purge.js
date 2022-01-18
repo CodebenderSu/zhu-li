@@ -7,7 +7,7 @@ const { commands, errors } = require(`../lang/${locale}.json`);
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('purge')
+		.setName(commands.purge.name)
 		.setDescription(commands.purge.desc)
     .addIntegerOption(option =>
   		option.setName('n')
@@ -38,7 +38,6 @@ module.exports = {
     if (n > 0 && n <= 100) { // /^\d+$/.test(n)
       // Purge messages by target
       if (t) {
-        const username = `${t.username}#${t.discriminator}`;
         const tMessages = [];
         // Filter messages by target
         await interaction.channel.messages.fetch({ limit: 100 })
@@ -54,7 +53,7 @@ module.exports = {
           .then(async messages => {
             await interaction.editReply(commands.purge.response.successWithTarget
               .replace('__n__', messages.size)
-              .replace('__t__', username));
+              .replace('__t__', t.tag));
             return;
           })
           .catch(async () => {

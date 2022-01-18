@@ -5,7 +5,7 @@ const { commands } = require(`../lang/${locale}.json`);
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('bravo')
+		.setName(commands.bravo.name)
 		.setDescription(commands.bravo.desc),
 	async execute(interaction) {
 		await interaction.reply(commands.bravo.response.success);

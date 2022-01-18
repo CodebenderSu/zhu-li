@@ -42,7 +42,7 @@ client.on("error", (e) => console.error('[Error]', e.message));
 client.on("warn", (e) => console.warn('[Warning]', e.message));
 //client.on("debug", (e) => console.info('[Debug]', e.message));
 
-
+module.exports = { client };
 ///////////////////////////* SERVER PURGE *////////////////////////
 //let guildList = client.guilds.map(guild => guild.name).join('\n');
 //console.warn(`About to leave ${client.guilds.length} servers!`);
