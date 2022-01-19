@@ -69,8 +69,13 @@
       }
     },
     "inspect": {
-      "name": "Inspect",
-      "desc": "Provides server diagnostics"
+      "name": "inspect",
+      "desc": "Provides server diagnostics",
+      "response": {
+        "embedAuthor": "Server Diagnostics",
+        "embedFoot": "Responding to __u__",
+        "embedDesc": "**Server Name:** __guild_name__\n**Server ID:** `__guild_id__`\n**Server DOB:** __guild_createdAt__\n**Server Region:** __guild_region__\n\n**Channel Count:** __guild_channels__\n**Role Count:** __guild_roles__\n**Member Count:** __guild_memberCount__\n**Bans Count:** __bans__\n**Invites Count:** __invites__\n\n**Server Owner:** __guild_owner__\n**Owner ID:** `__guild_ownerID__`\n\n**Channel Name:** __channel_name__\n**Channel ID:** `__channel_id__`\n**Channel Type:** __channel_type__"
+      }
     }
   },
   "errors": {
