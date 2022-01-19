@@ -1,4 +1,8 @@
 {
+  "app": {
+    "start": "Getting you plugged in...",
+    "ready": "Logged in as: __u__"
+  },
   "commands": {
     "help": {
       "name": "help",
@@ -84,14 +88,5 @@
     "noPermsUser": "You aren't allowed to use that command :shrug:",
     "noAccess": "That command can't be used in DMs :thinking:",
     "fail": "Failed to run command; My diagnostics indicate the following issue:"
-  },
-  "greetings": [
-    "Hello",
-    "Hi there",
-    "Hey",
-    "Howdy",
-    "Greetings",
-    "Hi",
-    "Hey there"
-  ]
+  }
 }

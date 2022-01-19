@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
-const { main: { locale, color } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
+const { locale, embed: { color } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
 const { commands, errors } = require(`../lang/${locale}.json`);
 
 module.exports = {

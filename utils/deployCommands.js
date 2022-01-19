@@ -5,7 +5,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 
-const { main: { token, clientId, locale } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
+const { locale, main: { token, clientId } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
 const lang = require(`../lang/${locale}.json`);
 
 const commands = [];

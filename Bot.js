@@ -8,7 +8,8 @@ const Guild = require('./schemas/Guild');
 const handleReady = require('./events/ready');
 const handleInteraction = require('./events/interaction');
 // const handleMessage = require('./events/message');
-const { main: { token, mongooseURI } } = require(`./settings/${process.env.ENV_CONFIG}config.js`);
+const { locale, main: { token }, db: { mongooseURI } } = require(`./settings/${process.env.ENV_CONFIG}config.js`);
+const { app } = require(`./lang/${locale}.json`);
 
 /////////////////////* BOT INITIALIZATION *///////////////////////
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
@@ -31,7 +32,7 @@ for (const file of commandFiles) {
 // }).then(console.log('Connected to MongoDB successfully'))
 /////////////////////////* BOT LOGIN */////////////////////////////
 client.login(token)
-  .then(console.log('Getting you plugged in...'))
+  .then(console.log(app.start))
   .catch(console.error);
 ////////////////////* EVENTS HANDLES */////////////////////////////
 client.once('ready', () => handleReady(client));

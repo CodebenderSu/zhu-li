@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { Permissions } = require('discord.js');
 // const wait = require('util').promisify(setTimeout);
 
-const { main: { locale } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
+const { locale } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
 const { commands, errors } = require(`../lang/${locale}.json`);
 
 module.exports = {

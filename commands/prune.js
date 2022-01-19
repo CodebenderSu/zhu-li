@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, Permissions } = require('discord.js');
 
-const { main: { locale } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
+const { locale } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
 const { commands } = require(`../lang/${locale}.json`);
 
 module.exports = {
