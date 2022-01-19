@@ -1,7 +1,13 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { Permissions } = require('discord.js');
 
 const { locale, embed: { color } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
 const { commands, errors } = require(`../lang/${locale}.json`);
+
+const reqPerms = [
+  Permissions.FLAGS.MANAGE_GUILD,
+  Permissions.FLAGS.BAN_MEMBERS
+];
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -13,6 +19,15 @@ module.exports = {
     if (!interaction.guild) {
       await interaction.editReply(errors.noAccess); return;
     };
+// Handle no permission
+		reqPerms.forEach(async perm => {
+			if (!interaction.guild.me.permissions.has(perm)) {
+	      await interaction.editReply(errors.noPermsBot.replace('__p__', perm)); return;
+	    };
+	    if (!interaction.member.permissions.has(perm)) {
+	      await interaction.editReply(errors.noPermsUser.replace('__p__', perm)); return;
+	    };
+		});
 // Create embed response
     const { guild, member, user, channel } = interaction;
     const bans = await guild.bans.fetch().catch('null');

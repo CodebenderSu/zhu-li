@@ -8,6 +8,7 @@ const Guild = require('./schemas/Guild');
 const handleReady = require('./events/ready');
 const handleInteraction = require('./events/interaction');
 // const handleMessage = require('./events/message');
+const handleUnhandledRejection = require('./events/unhandledRejection');
 const { locale, main: { token }, db: { mongooseURI } } = require(`./settings/${process.env.ENV_CONFIG}config.js`);
 const { app } = require(`./lang/${locale}.json`);
 
@@ -39,6 +40,7 @@ client.once('ready', () => handleReady(client));
 client.on('interactionCreate', (interaction) => handleInteraction(interaction, client));
 // client.on('message', (message) => handleMessage(message, client));
 
+client.on('unhandledRejection', (err) => handleUnhandledRejection(err));
 client.on("error", (e) => console.error('[Error]', e.message));
 client.on("warn", (e) => console.warn('[Warning]', e.message));
 //client.on("debug", (e) => console.info('[Debug]', e.message));

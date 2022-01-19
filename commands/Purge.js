@@ -5,6 +5,10 @@ const { Permissions } = require('discord.js');
 const { locale } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
 const { commands, errors } = require(`../lang/${locale}.json`);
 
+const reqPerms = [
+	Permissions.FLAGS.MANAGE_MESSAGES
+];
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName(commands.purge.name)
@@ -28,12 +32,14 @@ module.exports = {
       await interaction.editReply(errors.noAccess); return;
     };
 // Handle no permission
-    if (!interaction.guild.me.permissions.has(Permissions.MANAGE_MESSAGES)) {
-      await interaction.editReply(errors.noPermsBot); return;
-    };
-    if (!interaction.member.permissions.has(Permissions.MANAGE_MESSAGES)) {
-      await interaction.editReply(errors.noPermsUser); return;
-    };
+		reqPerms.forEach(async perm => {
+			if (!interaction.guild.me.permissions.has(perm)) {
+	      await interaction.editReply(errors.noPermsBot.replace('__p__', perm)); return;
+	    };
+	    if (!interaction.member.permissions.has(perm)) {
+	      await interaction.editReply(errors.noPermsUser.replace('__p__', perm)); return;
+	    };
+		});
 // Purge logic
     if (n > 0 && n <= 100) { // /^\d+$/.test(n)
       // Purge messages by target

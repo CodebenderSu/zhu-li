@@ -63,13 +63,11 @@
         "cancel": "Prune cancelled"
       }
     },
-    "info": {
-      "name": "Info",
-      "desc": "Creates MessageEmbeds using chapters from the config",
-      "args": "chapter",
+    "join": {
+      "name": "join",
+      "desc": "Get an invite link to add this bot to a server you manage",
       "response": {
-        "MissingArg": "You need to tell me which chapter to give you info for",
-        "ChapterUnknown": "Invalid chapter provided: "
+        "embedDesc": "I can be a personal assistant in your Discord server too! Just use this link to do the thing for any server you manage:\n\n"
       }
     },
     "inspect": {
@@ -84,8 +82,8 @@
   },
   "errors": {
     "unknown": "I haven't learned that command yet. My dev is still working hard on adding new ones though. :neutral_face:",
-    "noPermsBot": "I don't have permission to do that :confused: \nTell an admin to do the thing",
-    "noPermsUser": "You aren't allowed to use that command :shrug:",
+    "noPermsBot": "I don't have the `__p__` permission to do that :confused: \nTell an admin to do the thing",
+    "noPermsUser": "You aren't allowed to use that command as you are missing the `__p__` permission :shrug:",
     "noAccess": "That command can't be used in DMs :thinking:",
     "fail": "Failed to run command; My diagnostics indicate the following issue:"
   }

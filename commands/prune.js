@@ -4,6 +4,10 @@ const { MessageActionRow, MessageButton, Permissions } = require('discord.js');
 const { locale } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
 const { commands } = require(`../lang/${locale}.json`);
 
+const reqPerms = [
+	Permissions.FLAGS.KICK_MEMBERS
+];
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName(commands.prune.name)
@@ -34,12 +38,14 @@ module.exports = {
       await interaction.editReply(errors.noAccess); return;
     };
 // Handle no permission
-    if (!interaction.guild.me.permissions.has(Permissions.KICK_MEMBERS)) {
-      await interaction.editReply(errors.noPermsBot); return;
-    };
-    if (!interaction.member.permissions.has(Permissions.KICK_MEMBERS)) {
-      await interaction.editReply(errors.noPermsUser); return;
-    };
+		reqPerms.forEach(async perm => {
+			if (!interaction.guild.me.permissions.has(perm)) {
+				await interaction.editReply(errors.noPermsBot.replace('__p__', perm)); return;
+			};
+			if (!interaction.member.permissions.has(perm)) {
+				await interaction.editReply(errors.noPermsUser.replace('__p__', perm)); return;
+			};
+		});
 // Prune logic
     if (d > 0 && d <= 30) {
       await interaction.guild.members.prune({ days: d, dry: true })
