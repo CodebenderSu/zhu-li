@@ -25,8 +25,6 @@ module.exports = {
   ,
 	async execute(interaction) {
     await interaction.deferReply({ ephemeral: true });
-    const n = interaction.options.getInteger('n');
-    const t = interaction.options.getUser('target');
 // Handle DM no access
     if (!interaction.guild) {
       await interaction.editReply(errors.noAccess); return;
@@ -40,6 +38,9 @@ module.exports = {
 	      await interaction.editReply(errors.noPermsUser.replace('__p__', perm)); return;
 	    };
 		});
+// Setup variables
+		const n = interaction.options.getInteger('n');
+		const t = interaction.options.getUser('target');
 // Purge logic
     if (n > 0 && n <= 100) { // /^\d+$/.test(n)
       // Purge messages by target

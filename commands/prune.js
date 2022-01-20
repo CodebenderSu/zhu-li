@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, Permissions } = require('discord.js');
 
 const { locale } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
-const { commands } = require(`../lang/${locale}.json`);
+const { commands, errors } = require(`../lang/${locale}.json`);
 
 const reqPerms = [
 	Permissions.FLAGS.KICK_MEMBERS
@@ -21,18 +21,6 @@ module.exports = {
   ,
 	async execute(interaction) {
 		await interaction.deferReply({ ephemeral: true });
-    const d = interaction.options.getInteger('days');
-    const row = new MessageActionRow()
-      .addComponents(new MessageButton()
-        .setCustomId('yes')
-        .setLabel('Confirm')
-        .setStyle('SUCCESS'))
-      .addComponents(new MessageButton()
-        .setCustomId('no')
-        .setLabel('Cancel')
-        .setStyle('DANGER'))
-    const filter = i => (i.customId === 'yes' || i.customId === 'no') && i.user.id === interaction.user.id;
-    const collector = interaction.channel.createMessageComponentCollector({ filter, time: 10000 });
 // Handle DM no access
     if (!interaction.guild) {
       await interaction.editReply(errors.noAccess); return;
@@ -46,6 +34,19 @@ module.exports = {
 				await interaction.editReply(errors.noPermsUser.replace('__p__', perm)); return;
 			};
 		});
+// Setup variables
+    const d = interaction.options.getInteger('days');
+    const row = new MessageActionRow()
+      .addComponents(new MessageButton()
+        .setCustomId('yes')
+        .setLabel('Confirm')
+        .setStyle('SUCCESS'))
+      .addComponents(new MessageButton()
+        .setCustomId('no')
+        .setLabel('Cancel')
+        .setStyle('DANGER'))
+    const filter = i => (i.customId === 'yes' || i.customId === 'no') && i.user.id === interaction.user.id;
+    const collector = interaction.channel.createMessageComponentCollector({ filter, time: 10000 });
 // Prune logic
     if (d > 0 && d <= 30) {
       await interaction.guild.members.prune({ days: d, dry: true })

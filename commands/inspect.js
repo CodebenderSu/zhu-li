@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { Permissions } = require('discord.js');
 
-const { locale, embed: { color } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
+const { locale, embed: { color, footerIconUrl } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
 const { commands, errors } = require(`../lang/${locale}.json`);
 
 const reqPerms = [
@@ -28,19 +28,20 @@ module.exports = {
 	      await interaction.editReply(errors.noPermsUser.replace('__p__', perm)); return;
 	    };
 		});
-// Create embed response
+// Setup variables
     const { guild, member, user, channel } = interaction;
     const bans = await guild.bans.fetch().catch('null');
     const invites = await guild.invites.fetch().catch('null');
     const owner = await guild.fetchOwner().catch('null');
     const roles = await guild.roles.fetch().catch('null');
+// Create embed response
     const inspectEmbed = {
       color,
       author: { name: commands.inspect.response.embedAuthor },
       thumbnail: { url: guild.iconURL({ dynamic: true }) },
       footer: {
         text: commands.inspect.response.embedFoot.replace('__u__', user.tag),
-        icon_url: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/154/robot-face_1f916.png'
+        icon_url: footerIconUrl
       },
       timestamp: new Date(),
       description: commands.inspect.response.embedDesc

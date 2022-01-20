@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
-const { locale, embed: { color } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
+const { locale, embed: { color, footerIconUrl } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
 const { commands } = require(`../lang/${locale}.json`);
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
 	async execute(interaction) {
 		await interaction.deferReply();
 // Dynamic user name (use nickname in guild)
-    let caller = interaction.user.username; if (interaction.guild) caller = interaction.member.nickname;
+    let caller = interaction.user.username; if (interaction.guild) caller = interaction.member.displayName;
 // Create string with available commands from those registered with the bot
     const cmdList = interaction.client.commands.map(i => i.data.name);
     let fieldValue = ``;
@@ -27,7 +27,7 @@ module.exports = {
       description: commands.help.response.embedDesc.replace('__u__', caller),
       footer: {
         text: commands.help.response.embedFoot.replace('__u__', interaction.user.tag),
-        icon_url: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/154/robot-face_1f916.png'
+        icon_url: footerIconUrl
       },
       timestamp: new Date(),
       fields: [

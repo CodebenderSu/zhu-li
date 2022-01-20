@@ -42,11 +42,14 @@
       }
     },
     "whois": {
-      "name": "WhoIs",
+      "name": "whois",
       "desc": "In depth user analysis",
-      "args": "@user",
+      "args": {
+        "target": "The user to lookup"
+      },
       "response": {
-        "MissingArg": "You need to \"@\" mention a user to properly use this command. :confused:"
+        "embedFoot": "Inquired by __u__",
+        "embedDesc": "**Display Name:** __m_displayName__\n**Is Bot:** __u_bot__\n**Deafened:** __m_voice_deaf__\n**Muted:** __m_voice_mute__\n**Voice Channel:** __m_voice_channel__\n\n**Roles:** __m_roles__\n**Joined Server:** __m_joinedAt__\n**Joined Discord:** __u_createdAt__"
       }
     },
     "prune": {
@@ -61,13 +64,6 @@
         "invalid": "I'm unable to prune by `__d__` days \n\nTry a number between 1 - 30",
         "confirm": "Are you sure you wish to prune `__n__` members?",
         "cancel": "Prune cancelled"
-      }
-    },
-    "join": {
-      "name": "join",
-      "desc": "Get an invite link to add this bot to a server you manage",
-      "response": {
-        "embedDesc": "I can be a personal assistant in your Discord server too! Just use this link to do the thing for any server you manage:\n\n"
       }
     },
     "inspect": {
@@ -86,5 +82,13 @@
     "noPermsUser": "You aren't allowed to use that command as you are missing the `__p__` permission :shrug:",
     "noAccess": "That command can't be used in DMs :thinking:",
     "fail": "Failed to run command; My diagnostics indicate the following issue:"
+  },
+  "activities": {
+    "PLAYING": "Playing",
+    "STREAMING": "Streaming",
+    "LISTENING": "Listening to",
+    "WATCHING": "Watching",
+    "CUSTOM": "",
+    "COMPETING": "Competing in"
   }
 }

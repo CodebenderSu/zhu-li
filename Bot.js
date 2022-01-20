@@ -13,7 +13,9 @@ const { locale, main: { token }, db: { mongooseURI } } = require(`./settings/${p
 const { app } = require(`./lang/${locale}.json`);
 
 /////////////////////* BOT INITIALIZATION *///////////////////////
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const client = new Client({
+	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES]
+});
 
 client.commands = new Collection();
 const dirPath = path.resolve(__dirname, './commands');
