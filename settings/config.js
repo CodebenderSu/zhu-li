@@ -8,7 +8,8 @@ const locale = 'en';
 const main = {
   token: '', // App secret
   clientId: '', // App ID
-  ownerId: '' // App owner ID, can be gleaned with /inspect command
+  ownerId: '', // App owner ID, can be gleaned with /inspect command
+  ownerGuild: '' // Guild ID to deploy commands to for testing (Developer only)
 };
 // Details for connecting to MongoDB
 const db = {

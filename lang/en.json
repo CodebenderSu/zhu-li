@@ -4,6 +4,35 @@
     "ready": "Logged in as: __u__"
   },
   "commands": {
+    "bravo": {
+      "name": "bravo",
+      "desc": "Bravo, sir",
+      "response": {
+        "success": "https://i.imgur.com/ttCJT5z.gif"
+      }
+    },
+    "embed": {
+      "name": "embed",
+      "desc": "Create a custom message embed",
+      "args": {
+        "color": "Embed border color; Must be a valid color string",
+        "title": "Embed title",
+        "url": "Title URL",
+        "authName": "Author name",
+        "authIcon": "URL for author icon",
+        "authUrl": "Author link URL",
+        "desc": "Embed content",
+        "thumbnail": "Thumbnail URL",
+        "image": "Image URL",
+        "timestamp": "Whether or not to add a timestamp",
+        "footText": "Embed footer text",
+        "footIcon": "URL for footer icon"
+      },
+      "response": {
+        "confirm": "Please confirm that the embed looks correct",
+        "cancel": "Embed creation cancelled :frowning: "
+      }
+    },
     "help": {
       "name": "help",
       "desc": "Lists all available commands and description",
@@ -13,43 +42,20 @@
         "embedField1Name": "Command Reference"
       }
     },
+    "inspect": {
+      "name": "inspect",
+      "desc": "Provides server diagnostics",
+      "response": {
+        "embedAuthor": "Server Diagnostics",
+        "embedFoot": "Responding to __u__",
+        "embedDesc": "**Server Name:** __guild_name__\n**Server ID:** `__guild_id__`\n**Server DOB:** __guild_createdAt__\n**Server Region:** __guild_region__\n\n**Channel Count:** __guild_channels__\n**Role Count:** __guild_roles__\n**Member Count:** __guild_memberCount__\n**Bans Count:** __bans__\n**Invites Count:** __invites__\n\n**Server Owner:** __guild_owner__\n**Owner ID:** `__guild_ownerID__`\n\n**Channel Name:** __channel_name__\n**Channel ID:** `__channel_id__`\n**Channel Type:** __channel_type__"
+      }
+    },
     "ping": {
       "name": "ping",
       "desc": "Pong!",
       "response": {
         "success": "Pong!"
-      }
-    },
-    "purge": {
-      "name": "purge",
-      "desc": "Deletes 'n' number of messages, up to 100 at a time (<14 days old)",
-      "args": {
-        "n": "Number of messages to delete (between 1 - 100)",
-        "target": "Only purge posts by specified user"
-      },
-      "response": {
-        "success": "Purged `__n__` posts successfully!",
-        "successWithTarget": "Purged `__n__` posts from `__t__`!",
-        "invalid": "I can't purge `__n__` posts :thinking: \n\nTry entering a number between 1 - 100",
-        "noscope": "Some of the posts you want me to delete are older than 14 days :confused: \n\nTry entering a smaller number"
-      }
-    },
-    "bravo": {
-      "name": "bravo",
-      "desc": "Bravo, sir",
-      "response": {
-        "success": "https://i.imgur.com/ttCJT5z.gif"
-      }
-    },
-    "whois": {
-      "name": "whois",
-      "desc": "In depth user analysis",
-      "args": {
-        "target": "The user to lookup"
-      },
-      "response": {
-        "embedFoot": "Inquired by __u__",
-        "embedDesc": "**Display Name:** __m_displayName__\n**Is Bot:** __u_bot__\n**Deafened:** __m_voice_deaf__\n**Muted:** __m_voice_mute__\n**Voice Channel:** __m_voice_channel__\n\n**Roles:** __m_roles__\n**Joined Server:** __m_joinedAt__\n**Joined Discord:** __u_createdAt__"
       }
     },
     "prune": {
@@ -66,13 +72,29 @@
         "cancel": "Prune cancelled"
       }
     },
-    "inspect": {
-      "name": "inspect",
-      "desc": "Provides server diagnostics",
+    "purge": {
+      "name": "purge",
+      "desc": "Deletes 'n' number of messages, up to 100 at a time (<14 days old)",
+      "args": {
+        "n": "Number of messages to delete (between 1 - 100)",
+        "target": "Only purge posts by specified user"
+      },
       "response": {
-        "embedAuthor": "Server Diagnostics",
-        "embedFoot": "Responding to __u__",
-        "embedDesc": "**Server Name:** __guild_name__\n**Server ID:** `__guild_id__`\n**Server DOB:** __guild_createdAt__\n**Server Region:** __guild_region__\n\n**Channel Count:** __guild_channels__\n**Role Count:** __guild_roles__\n**Member Count:** __guild_memberCount__\n**Bans Count:** __bans__\n**Invites Count:** __invites__\n\n**Server Owner:** __guild_owner__\n**Owner ID:** `__guild_ownerID__`\n\n**Channel Name:** __channel_name__\n**Channel ID:** `__channel_id__`\n**Channel Type:** __channel_type__"
+        "success": "Purged `__n__` posts successfully!",
+        "successWithTarget": "Purged `__n__` posts from `__t__`!",
+        "invalid": "I can't purge `__n__` posts :thinking: \n\nTry entering a number between 1 - 100",
+        "noscope": "Some of the posts you want me to delete are older than 14 days :confused: \n\nTry entering a smaller number"
+      }
+    },
+    "whois": {
+      "name": "whois",
+      "desc": "In depth user analysis",
+      "args": {
+        "target": "The user to lookup"
+      },
+      "response": {
+        "embedFoot": "Inquired by __u__",
+        "embedDesc": "**Display Name:** __m_displayName__\n**Is Bot:** __u_bot__\n**Deafened:** __m_voice_deaf__\n**Muted:** __m_voice_mute__\n**Voice Channel:** __m_voice_channel__\n\n**Roles:** __m_roles__\n**Joined Server:** __m_joinedAt__\n**Joined Discord:** __u_createdAt__"
       }
     }
   },

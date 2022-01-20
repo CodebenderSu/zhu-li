@@ -5,7 +5,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 
-const { locale, main: { token, clientId } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
+const { locale, main: { token, clientId, ownerGuild } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
 const lang = require(`../lang/${locale}.json`);
 
 const commands = [];
@@ -23,7 +23,7 @@ const rest = new REST({ version: '9' }).setToken(token);
 	try {
 		console.log('Refreshing application (/) commands...');
 		await rest.put(
-			Routes.applicationGuildCommands(clientId, '381852619548655616'),
+			Routes.applicationGuildCommands(clientId, ownerGuild),
 			{ body: commands },
 		);
 		await rest.put(
