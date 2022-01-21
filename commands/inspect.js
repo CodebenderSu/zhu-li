@@ -57,7 +57,7 @@ module.exports = {
       .setTimestamp()
       .setFooter({
         text: commands.inspect.response.embedFoot.replace('__u__', user.tag),
-        icon_url: footerIconUrl
+        iconURL: footerIconUrl
       })
     await interaction.editReply({ embeds: [inspectEmbed] });
 	}

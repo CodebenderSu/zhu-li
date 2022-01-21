@@ -29,9 +29,9 @@ const userDocs = 'https://github.com/CodebenderSu/Zhu-Li#end-user-command-guide'
 // Message Embed defaults
 const embed = {
   color: '#e9e341',
-  footerIconUrl: 'https://github.com/CodebenderSu/Zhu-Li/tree/master/assets/icon-bot.png',
-  thumbnailRoll: 'https://github.com/CodebenderSu/Zhu-Li/tree/master/assets/icon-dice.png',
-  thumbnailWhois: 'https://github.com/CodebenderSu/Zhu-Li/tree/master/assets/icon-magnify.png',
+  footerIconUrl: 'https://raw.githubusercontent.com/CodebenderSu/Zhu-Li/master/assets/icon-bot.png',
+  thumbnailRoll: 'https://raw.githubusercontent.com/CodebenderSu/Zhu-Li/master/assets/icon-dice.png',
+  thumbnailWhois: 'https://raw.githubusercontent.com/CodebenderSu/Zhu-Li/master/assets/icon-magnify.png',
 };
 
 // These should match with the valid strings defined by Discord.js documentation

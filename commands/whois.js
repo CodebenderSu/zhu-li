@@ -56,7 +56,7 @@ module.exports = {
 			.setTimestamp()
 			.setFooter({
         text: commands.whois.response.embedFoot.replace('__u__', interaction.user.tag),
-        icon_url: footerIconUrl
+        iconURL: footerIconUrl
       })
     await interaction.editReply({ embeds: [whoisEmbed] });
 	}

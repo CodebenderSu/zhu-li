@@ -53,7 +53,7 @@
       "response": {
         "embedTitle": "Command Reference",
         "embedDesc": "__greet__ `__u__`, below are commands you may use to tell me what to do. All commands are accessible using `/`.",
-        "embedFoot": "Responding to __u__",
+        "embedFoot": "Requested by __u__",
         "embedField1Name": "List of commands"
       }
     },

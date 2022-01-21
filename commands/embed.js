@@ -77,7 +77,7 @@ module.exports = {
       .setURL(options.getString('url'))
       .setAuthor({
     		name: authName ? authName.length < 256 ? authName : commands.embed.response.limitName : '',
-    		icon_url: options.getString('authicon'),
+    		iconURL: options.getString('authicon'),
     		url: options.getString('authurl'),
     	})
       .setDescription(desc.length < 4096 ? desc : commands.embed.response.limitDesc)
@@ -86,7 +86,7 @@ module.exports = {
       .setTimestamp(options.getBoolean('timestamp') ? new Date() : '')
       .setFooter({
     		text: footText ? footText.length < 2048 ? footText : commands.embed.response.limitFoot : '',
-    		icon_url: options.getString('footicon'),
+    		iconURL: options.getString('footicon'),
     	})
     ;
     if (newEmbed.length > 6000) {

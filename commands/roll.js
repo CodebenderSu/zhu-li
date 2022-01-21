@@ -71,7 +71,7 @@ module.exports = {
       .setTimestamp()
       .setFooter({
         text: commands.roll.response.embedFoot.replace('__u__', interaction.user.tag),
-        icon_url: footerIconUrl
+        iconURL: footerIconUrl
       })
     await interaction.editReply({ embeds: [rollEmbed] });
 	}
