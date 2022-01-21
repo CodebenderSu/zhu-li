@@ -13,6 +13,7 @@ Zhu Li is a bot named after the Legend of Korra character by the same name. Like
  * Ping - Pong!
  * Prune - Prune inactive members
  * Purge - Deletes 'n' number of messages, up to 100 at a time (<14 days old)
+ * Roll - Roll a die or several
  * WhoIs - In depth user analysis
 * Change the language of the bot responses by creating your own /lang .json file
 * Customize bot activity status

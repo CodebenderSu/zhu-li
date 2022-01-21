@@ -22,10 +22,12 @@ const rest = new REST({ version: '9' }).setToken(token);
 (async () => {
 	try {
 		console.log('Refreshing application (/) commands...');
-		await rest.put(
-			Routes.applicationGuildCommands(clientId, ownerGuild),
-			{ body: commands },
-		);
+		if (ownerGuild) {
+			await rest.put(
+				Routes.applicationGuildCommands(clientId, ownerGuild),
+				{ body: commands },
+			);
+		};
 		await rest.put(
 			Routes.applicationCommands(clientId),
 			{ body: commands },
