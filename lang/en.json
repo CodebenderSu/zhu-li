@@ -15,7 +15,7 @@
       "name": "embed",
       "desc": "Create a custom message embed",
       "args": {
-        "color": "Embed border color; Must be a valid color string",
+        "color": "Embed border color; Must be a valid color string or color hex",
         "title": "Embed title",
         "url": "Title URL",
         "authName": "Author name",
@@ -30,7 +30,13 @@
       },
       "response": {
         "confirm": "Please confirm that the embed looks correct",
-        "cancel": "Embed creation cancelled :frowning: "
+        "cancel": "Embed creation cancelled :frowning: ",
+        "invalidDesc": "The description you provided was invalid",
+        "limitTitle": "Exceeded `256` character limit for title",
+        "limitName": "Exceeded `256` character limit for author name",
+        "limitDesc": "Exceeded `4096` character limit for description",
+        "limitFoot": "Exceeded `2048` character limit for footer text",
+        "limitEmbed": "Your embed exceeds the `6000` character limit :confused: "
       }
     },
     "help": {

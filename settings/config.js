@@ -30,4 +30,40 @@ const embed = {
   thumbnailWhois: { url: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/154/left-pointing-magnifying-glass_1f50d.png' },
 };
 
-module.exports = { locale, main, db, activity, embed };
+// These should match with the valid strings defined by Discord.js documentation
+// See: https://discord.js.org/#/docs/main/stable/typedef/ColorResolvable
+const validColorStr = [
+  'DEFAULT',
+  'WHITE',
+  'AQUA',
+  'GREEN',
+  'BLUE',
+  'YELLOW',
+  'PURPLE',
+  'LUMINOUS_VIVID_PINK',
+  'FUCHSIA',
+  'GOLD',
+  'ORANGE',
+  'RED',
+  'GREY',
+  'NAVY',
+  'DARK_AQUA',
+  'DARK_GREEN',
+  'DARK_BLUE',
+  'DARK_PURPLE',
+  'DARK_VIVID_PINK',
+  'DARK_GOLD',
+  'DARK_ORANGE',
+  'DARK_RED',
+  'DARK_GREY',
+  'DARKER_GREY',
+  'LIGHT_GREY',
+  'DARK_NAVY',
+  'BLURPLE',
+  'GREYPLE',
+  'DARK_BUT_NOT_BLACK',
+  'NOT_QUITE_BLACK',
+  'RANDOM'
+];
+
+module.exports = { locale, main, db, activity, embed, validColorStr };
