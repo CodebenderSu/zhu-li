@@ -3,6 +3,14 @@
     "start": "Getting you plugged in...",
     "ready": "Logged in as: __u__"
   },
+  "activities": {
+    "PLAYING": "Playing",
+    "STREAMING": "Streaming",
+    "LISTENING": "Listening to",
+    "WATCHING": "Watching",
+    "CUSTOM": "",
+    "COMPETING": "Competing in"
+  },
   "commands": {
     "bravo": {
       "name": "bravo",
@@ -44,7 +52,7 @@
       "desc": "Lists all available commands and description",
       "response": {
         "embedTitle": "Command Reference",
-        "embedDesc": "Hello `__u__`, below are commands you may use to tell me what to do. All commands are accessible using `/`.",
+        "embedDesc": "__greet__ `__u__`, below are commands you may use to tell me what to do. All commands are accessible using `/`.",
         "embedFoot": "Responding to __u__",
         "embedField1Name": "List of commands"
       }
@@ -93,6 +101,22 @@
         "noscope": "Some of the posts you want me to delete are older than 14 days :confused: \n\nTry entering a smaller number"
       }
     },
+    "roll": {
+      "name": "roll",
+      "desc": "Roll a die or several",
+      "args": {
+        "type": "Type of die to roll",
+        "n": "Number of die to roll, defaults to 1 (max 100)",
+        "bonuses": "A bonus modifier to add on to the final roll result"
+      },
+      "response": {
+        "invalidN": "I cannot roll `__n__` dice :confused: Please pick a number between 1 - 100",
+        "invalidBonus": "Bonus modifier of `__bonus__` exceeds my limit :confused: Please use a number between -1,000,000 and 1,000,000",
+        "embedAuthor": "Dice roll",
+        "embedDesc": "__phrase__! `__u__` has initiated a roll of `__n__x` **d__type__**.\n\n**Your Rolls**\n__results__\n\n**Base Sum:** __sum__\n**+ Modifier:** __bonus__\n\n**Grand Total:** __total__",
+        "embedFoot": "Rolled by __u__"
+      }
+    },
     "whois": {
       "name": "whois",
       "desc": "In depth user analysis",
@@ -112,12 +136,28 @@
     "noAccess": "That command can't be used in DMs :thinking:",
     "fail": "Failed to run command; My diagnostics indicate the following issue:"
   },
-  "activities": {
-    "PLAYING": "Playing",
-    "STREAMING": "Streaming",
-    "LISTENING": "Listening to",
-    "WATCHING": "Watching",
-    "CUSTOM": "",
-    "COMPETING": "Competing in"
-  }
+  "greetings": [
+    "Hello",
+    "Hello there",
+    "Hey",
+    "Hey there",
+    "Hi",
+    "Hi there",
+    "Greetings",
+    "Howdy"
+  ],
+  "phrases": [
+    "Hark",
+    "Avast",
+    "Yarr",
+    "Ahoy",
+    "Hear ye",
+    "Geronimo",
+    "What ho",
+    "Excelsior",
+    "Kupo",
+    "Hail",
+    "Skål",
+    "Well met"
+  ]
 }

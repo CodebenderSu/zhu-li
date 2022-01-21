@@ -117,6 +117,14 @@ Deletes posts in whatever channel it is used in by most recent to least recent. 
 * **target** - Specify a user to delete only posts made by them.
 
 ---
+### **/roll** *{type} [n, bonuses]*
+Rolls some dice.
+#### Args
+* **type** - *Required* - (`d4`, `d6`, `d8`, `d10`, `d12`, `d20`, `d100`) - The type of die to roll (number of faces for dice).
+* **n** - The number of dice to roll. Limited to 1 - 100. Defaults to 1.
+* **bonuses** - A modifier to add on to your result. Limited to -1,000,000 - 1,000,000. Defaults to 0.
+
+---
 ### **/whois** *{target}*
 Provides an embed with various details about a specific user. CANNOT be used in DMs.
 #### Args

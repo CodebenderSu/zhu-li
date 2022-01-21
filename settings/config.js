@@ -31,6 +31,7 @@ const embed = {
   color: '#e9e341',
   footerIconUrl: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/154/robot-face_1f916.png',
   thumbnailWhois: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/154/left-pointing-magnifying-glass_1f50d.png',
+  thumbnailRoll: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/282/game-die_1f3b2.png'
 };
 
 // These should match with the valid strings defined by Discord.js documentation
