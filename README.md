@@ -44,10 +44,11 @@ Planned features include:
 
 ## End User Command Guide
 
-### /bravo
+### **/bravo**
 Simple command in which the bot will respond with a gif of Zhu Li unenthusiastically applauding.
 
-### /embed {desc} [color, title, url, authname, authicon, authurl, thumbnail, image, timestamp, foottext, footicon]
+---
+### **/embed** *{desc} [color, title, url, authname, authicon, authurl, thumbnail, image, timestamp, foottext, footicon]*
 A feature-rich command that allows you to build and customize your own Discord embed messages. The embed cannot exceed a combined total of 6000 characters.
 #### Args
 * **desc** - *Required* - The main body of your embed. Cannot exceed 4096 characters.
@@ -90,27 +91,33 @@ A feature-rich command that allows you to build and customize your own Discord e
 * **foottext** - The text in the footer of the embed. Limited to 2048 characters.
 * **footicon** - The URL for adding an icon next to the footer text.
 
-### /help
+---
+### **/help**
 Provides an embed with a listing of available commands and brief description of those commands.
 
-### /inspect
+---
+### **/inspect**
 Provides an embed with various details about the Discord server. CANNOT be used in DMs.
 
-### /ping
+---
+### **/ping**
 Basic command which causes the bot to simply respond with "Pong!".
 
-### /prune {days}
+---
+### **/prune** *{days}*
 Prunes inactive members based on how many days they've been inactive. CANNOT be used in DMs.
 #### Args
 * **days** - *Required* - Days of inactivity to kick users by. Has to be a number between 1 - 30
 
-### /purge {n} [target]
+---
+### **/purge** *{n} [target]*
 Deletes posts in whatever channel it is used in by most recent to least recent. API restrictions limit it to posts that are no older than 14 days. CANNOT be used in DMs.
 #### Args
 * **n** - *Required* - Number of posts to delete. Has to be a number between 1 - 100.
 * **target** - Specify a user to delete only posts made by them.
 
-### /whois {target}
+---
+### **/whois** *{target}*
 Provides an embed with various details about a specific user. CANNOT be used in DMs.
 #### Args
 * **target** - *Required* - User to lookup.

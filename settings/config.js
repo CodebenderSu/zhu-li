@@ -23,11 +23,14 @@ const activity = {
   url: null
 };
 
+// Link to End User documentation from the README.md
+const userDocs = 'https://github.com/CodebenderSu/Zhu-Li#end-user-command-guide';
+
 // Message Embed defaults
 const embed = {
   color: '#e9e341',
   footerIconUrl: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/154/robot-face_1f916.png',
-  thumbnailWhois: { url: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/154/left-pointing-magnifying-glass_1f50d.png' },
+  thumbnailWhois: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/154/left-pointing-magnifying-glass_1f50d.png',
 };
 
 // These should match with the valid strings defined by Discord.js documentation
@@ -66,4 +69,4 @@ const validColorStr = [
   'RANDOM'
 ];
 
-module.exports = { locale, main, db, activity, embed, validColorStr };
+module.exports = { locale, main, db, activity, userDocs, embed, validColorStr };

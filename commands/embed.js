@@ -1,5 +1,5 @@
-const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { MessageEmbed } = require('discord.js');
 
 const { locale, embed: { color }, validColorStr } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
 const { commands } = require(`../lang/${locale}.json`);

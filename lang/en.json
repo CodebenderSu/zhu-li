@@ -43,9 +43,10 @@
       "name": "help",
       "desc": "Lists all available commands and description",
       "response": {
+        "embedTitle": "Command Reference",
         "embedDesc": "Hello `__u__`, below are commands you may use to tell me what to do. All commands are accessible using `/`.",
         "embedFoot": "Responding to __u__",
-        "embedField1Name": "Command Reference"
+        "embedField1Name": "List of commands"
       }
     },
     "inspect": {

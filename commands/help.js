@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { MessageEmbed } = require('discord.js');
 
-const { locale, embed: { color, footerIconUrl } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
+const { locale, userDocs, embed: { color, footerIconUrl } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
 const { commands } = require(`../lang/${locale}.json`);
 
 module.exports = {
@@ -22,18 +23,17 @@ module.exports = {
       fieldValue = fieldValue.concat(strFragment);
     })
 // Create embed response
-    const helpEmbed = {
-      color,
-      description: commands.help.response.embedDesc.replace('__u__', caller),
-      footer: {
+    const helpEmbed = new MessageEmbed()
+			.setColor(color)
+			.setTitle(commands.help.response.embedTitle)
+			.setURL(userDocs)
+			.setDescription(commands.help.response.embedDesc.replace('__u__', caller))
+			.addFields({ name: commands.help.response.embedField1Name, value: fieldValue })
+			.setTimestamp()
+			.setFooter({
         text: commands.help.response.embedFoot.replace('__u__', interaction.user.tag),
         icon_url: footerIconUrl
-      },
-      timestamp: new Date(),
-      fields: [
-        { name: commands.help.response.embedField1Name, value: fieldValue }
-      ]
-    };
+      })
     await interaction.editReply({ embeds: [helpEmbed] });
 	}
 };
