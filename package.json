@@ -11,13 +11,15 @@
     "discord.js": "^13.6.0",
     "dotenv": "^8.6.0",
     "mongoose": "^5.13.14",
-    "nodemon": "^2.0.15",
-    "sequelize": "^6.13.0"
+    "nodemon": "^2.0.15"
   },
   "scripts": {
     "start": "node Bot.js",
     "start-r": "nodemon Bot.js",
-    "start-rd": "node utils/deployCommands.js && nodemon Bot.js"
+    "start-rd": "node utils/deployCommands.js && nodemon Bot.js",
+    "start-dev": "set ENV_CONFIG=dev.&& node Bot.js",
+    "start-dev-r": "set ENV_CONFIG=dev.&& nodemon Bot.js",
+    "start-dev-rd": "set ENV_CONFIG=dev.&& node utils/deployCommands.js && nodemon Bot.js"
   },
   "config": {
     "src": "./settings/config.js"
