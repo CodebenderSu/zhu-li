@@ -6,15 +6,15 @@ Zhu Li is a bot named after the Legend of Korra character by the same name. Like
 
 ## Features
 * The following slash commands:
- * Bravo - Bravo, sir
- * Embed - Create a custom message embed
- * Help - Lists all available commands and description
- * Inspect - Provides server diagnostics
- * Ping - Pong!
- * Prune - Prune inactive members
- * Purge - Deletes 'n' number of messages, up to 100 at a time (<14 days old)
- * Roll - Roll a die or several
- * WhoIs - In depth user analysis
+  * [**Bravo**](#bravo) - Bravo, sir
+  * [**Embed**](#embed-desc-color-title-url-authname-authicon-authurl-thumbnail-image-timestamp-foottext-footicon) - Create a custom message embed
+  * [**Help**](#help) - Lists all available commands and description
+  * [**Inspect**](#inspect) - Provides server diagnostics
+  * [**Ping**](#ping) - Pong!
+  * [**Prune**](#prune-days) - Prune inactive members
+  * [**Purge**](#purge-n-target) - Deletes 'n' number of messages, up to 100 at a time (<14 days old)
+  * [**Roll**](#roll-type-n-bonuses) - Roll a die or several
+  * [**WhoIs**](#whois-target) - In depth user analysis
 * Change the language of the bot responses by creating your own /lang .json file
 * Customize bot activity status
 * Easy to use
@@ -83,7 +83,7 @@ A feature-rich command that allows you to build and customize your own Discord e
   * `title:Cool title` `url:https://cool-link.yxj` =>
   > [Cool title]()
 
-* **authname** - The name of the author, although you could also think of it like a subtitle. Limited to 256 characters.
+* **authname** - The name of the author, although you could also think of it like a header. Limited to 256 characters.
 * **authicon** - The URL for adding an icon next to the author name.
 * **authurl** - The URL for the author, if you want to add a link.
 * **thumbnail** - The URL of an image to add to the upper right-hand corner of the embed.
