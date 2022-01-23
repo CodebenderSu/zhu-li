@@ -9,31 +9,31 @@ module.exports = {
 		.setName(commands.roll.name)
 		.setDescription(commands.roll.desc)
     .addIntegerOption(option =>
-      option.setName('type')
-      .setDescription(commands.roll.args.type)
+      option.setName(commands.roll.args.type.name)
+      .setDescription(commands.roll.args.type.desc)
       .setRequired(true)
-      .addChoice('d4', 4)
-      .addChoice('d6', 6)
-      .addChoice('d8', 8)
-      .addChoice('d10', 10)
-      .addChoice('d12', 12)
-      .addChoice('d20', 20)
-      .addChoice('d100', 100))
+      .addChoice(commands.roll.args.type.choices.d4.name, 4)
+      .addChoice(commands.roll.args.type.choices.d6.name, 6)
+      .addChoice(commands.roll.args.type.choices.d8.name, 8)
+      .addChoice(commands.roll.args.type.choices.d10.name, 10)
+      .addChoice(commands.roll.args.type.choices.d12.name, 12)
+      .addChoice(commands.roll.args.type.choices.d20.name, 20)
+      .addChoice(commands.roll.args.type.choices.d100.name, 100))
     .addIntegerOption(option =>
-  		option.setName('n')
-  		.setDescription(commands.roll.args.n)
+  		option.setName(commands.roll.args.n.name)
+  		.setDescription(commands.roll.args.n.desc)
 			.setMinValue(1)
 			.setMaxValue(100))
     .addIntegerOption(option =>
-  		option.setName('bonuses')
-  		.setDescription(commands.roll.args.bonuses))
+  		option.setName(commands.roll.args.bonus.name)
+  		.setDescription(commands.roll.args.bonus.desc))
   ,
 	async execute(interaction) {
 		await interaction.deferReply();
 // Setup variables
-    const type = interaction.options.getInteger('type');
-    const n = interaction.options.getInteger('n');
-    const bonuses = interaction.options.getInteger('bonuses');
+    const type = interaction.options.getInteger(commands.roll.args.type.name);
+    const n = interaction.options.getInteger(commands.roll.args.n.name);
+    const bonuses = interaction.options.getInteger(commands.roll.args.bonus.name);
     let number = 1; if (n) number = n;
     let bonus = 0; if (bonuses) bonus = bonuses;
     let caller = interaction.user.username; if (interaction.guild) caller = interaction.member.displayName;

@@ -2,19 +2,22 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const { Client, Intents, Collection } = require('discord.js');
-const { connect } = require('mongoose');
 
 const Guild = require('./schemas/Guild');
 const handleReady = require('./events/ready');
 const handleInteraction = require('./events/interaction');
 // const handleMessage = require('./events/message');
 const handleUnhandledRejection = require('./events/unhandledRejection');
-const { locale, main: { token }, db: { mongooseURI } } = require(`./settings/${process.env.ENV_CONFIG}config.js`);
+const { locale, main: { token } } = require(`./settings/${process.env.ENV_CONFIG}config.js`);
 const { app } = require(`./lang/${locale}.json`);
 
 /////////////////////* BOT INITIALIZATION *///////////////////////
 const client = new Client({
-	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES]
+	intents: [
+		Intents.FLAGS.GUILDS,
+		Intents.FLAGS.GUILD_VOICE_STATES,
+		Intents.FLAGS.GUILD_MESSAGE_REACTIONS
+	]
 });
 
 client.commands = new Collection();
@@ -27,12 +30,6 @@ for (const file of commandFiles) {
 	// With the key as the command name and the value as the exported module
 	client.commands.set(command.data.name, command);
 };
-/////////////////////////* MONGODB HOOK *///////////////////////////////
-// connect(mongooseURI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   useFindAndModify: false
-// }).then(console.log('Connected to MongoDB successfully'))
 /////////////////////////* BOT LOGIN */////////////////////////////
 client.login(token)
   .then(console.log(app.start))

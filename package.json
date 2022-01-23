@@ -19,7 +19,8 @@
     "start-rd": "node utils/deployCommands.js && nodemon Bot.js",
     "start-dev": "set ENV_CONFIG=dev.&& node Bot.js",
     "start-dev-r": "set ENV_CONFIG=dev.&& nodemon Bot.js",
-    "start-dev-rd": "set ENV_CONFIG=dev.&& node utils/deployCommands.js && nodemon Bot.js"
+    "start-dev-rd": "set ENV_CONFIG=dev.&& node utils/deployCommands.js && nodemon Bot.js",
+    "db": "mongod --dbpath data/db/"
   },
   "config": {
     "src": "./settings/config.js"

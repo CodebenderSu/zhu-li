@@ -13,7 +13,7 @@ const main = {
 };
 // Details for connecting to MongoDB
 const db = {
-  mongooseURI: ''
+  mongooseURI: 'mongodb://localhost:27017'
 };
 
 // Activity status for bot

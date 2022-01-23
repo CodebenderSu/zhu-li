@@ -23,18 +23,54 @@
       "name": "embed",
       "desc": "Create a custom message embed",
       "args": {
-        "color": "Embed border color; Must be a valid color string or color hex",
-        "title": "Embed title",
-        "url": "Title URL",
-        "authName": "Author name",
-        "authIcon": "URL for author icon",
-        "authUrl": "Author link URL",
-        "desc": "Embed content",
-        "thumbnail": "Thumbnail URL",
-        "image": "Image URL",
-        "timestamp": "Whether or not to add a timestamp",
-        "footText": "Embed footer text",
-        "footIcon": "URL for footer icon"
+        "color": {
+          "name": "color",
+          "desc": "Embed border color; Must be a valid color string or color hex"
+        },
+        "title": {
+          "name": "title",
+          "desc": "Embed title"
+        },
+        "url": {
+          "name": "url",
+          "desc": "Title URL"
+        },
+        "authName": {
+          "name": "authname",
+          "desc": "Author name"
+        },
+        "authIcon": {
+          "name": "authicon",
+          "desc": "URL for author icon"
+        },
+        "authUrl": {
+          "name": "authurl",
+          "desc": "Author link URL"
+        },
+        "desc": {
+          "name": "desc",
+          "desc": "Embed content"
+        },
+        "thumbnail": {
+          "name": "thumbnail",
+          "desc": "Thumbnail URL"
+        },
+        "image": {
+          "name": "image",
+          "desc": "Image URL"
+        },
+        "timestamp": {
+          "name": "timestamp",
+          "desc": "Whether or not to add a timestamp"
+        },
+        "footText": {
+          "name": "foottext",
+          "desc": "Embed footer text"
+        },
+        "footIcon": {
+          "name": "footicon",
+          "desc": "URL for footer icon"
+        }
       },
       "response": {
         "confirm": "Please confirm that the embed looks correct",
@@ -66,6 +102,70 @@
         "embedDesc": "**Server Name:** __guild_name__\n**Server ID:** `__guild_id__`\n**Server DOB:** __guild_createdAt__\n**Server Region:** __guild_region__\n\n**Channel Count:** __guild_channels__\n**Role Count:** __guild_roles__\n**Member Count:** __guild_memberCount__\n**Bans Count:** __bans__\n**Invites Count:** __invites__\n\n**Server Owner:** __guild_owner__\n**Owner ID:** `__guild_ownerID__`\n\n**Channel Name:** __channel_name__\n**Channel ID:** `__channel_id__`\n**Channel Type:** __channel_type__"
       }
     },
+    "panel": {
+      "name": "panel",
+      "desc": "Reaction role management",
+      "sub": {
+        "add": {
+          "name": "addrole",
+          "desc": "Add a role to a panel",
+          "args": {
+            "role": {
+              "name": "role",
+              "desc": "Role to add"
+            },
+            "alias": {
+              "name": "alias",
+              "desc": "Customize the name of the role"
+            },
+            "color": {
+              "name": "color",
+              "desc": "Color of the button for the role",
+              "choices": {
+                "green": { "name": "green" },
+                "blue": { "name": "blue" },
+                "red": { "name": "red" },
+                "grey": { "name": "grey" }
+              }
+            }
+          }
+        },
+        "remove": {
+          "name": "removerole",
+          "desc": "Remove a role from a panel",
+          "args": {
+            "role": {
+              "name": "role",
+              "desc": "Role to remove"
+            }
+          }
+        },
+        "create": {
+          "name": "create",
+          "desc": "Create a panel",
+          "args": {
+            "name": {
+              "name": "name",
+              "desc": "Name for the created panel"
+            }
+          }
+        },
+        "delete": {
+          "name": "delete",
+          "desc": "Delete a panel"
+        },
+        "list": {
+          "name": "list",
+          "desc": "List panels or roles in a panel",
+          "args": {
+            "name": {
+              "name": "name",
+              "desc": "Name of a panel to view roles of"
+            }
+          }
+        }
+      }
+    },
     "ping": {
       "name": "ping",
       "desc": "Pong!",
@@ -77,7 +177,10 @@
       "name": "prune",
       "desc": "Prune inactive members",
       "args": {
-        "days": "Days of inactivity to prune by (between 1 - 30)"
+        "days": {
+          "name": "days",
+          "desc": "Days of inactivity to prune by (between 1 - 30)"
+        }
       },
       "response": {
         "success": "Successfully pruned `__n__` members :wave: ",
@@ -91,8 +194,14 @@
       "name": "purge",
       "desc": "Deletes 'n' number of messages, up to 100 at a time (<14 days old)",
       "args": {
-        "n": "Number of messages to delete (between 1 - 100)",
-        "target": "Only purge posts by specified user"
+        "n": {
+          "name": "n",
+          "desc": "Number of messages to delete (between 1 - 100)"
+        },
+        "target": {
+          "name": "target",
+          "desc": "Only purge posts by specified user"
+        }
       },
       "response": {
         "success": "Purged `__n__` posts successfully!",
@@ -105,9 +214,27 @@
       "name": "roll",
       "desc": "Roll a die or several",
       "args": {
-        "type": "Type of die to roll",
-        "n": "Number of die to roll, defaults to 1 (max 100)",
-        "bonuses": "A bonus modifier to add on to the final roll result"
+        "type": {
+          "name": "type",
+          "desc": "Type of die to roll",
+          "choices": {
+            "d4": { "name": "d4" },
+            "d6": { "name": "d6" },
+            "d8": { "name": "d8" },
+            "d10": { "name": "d10" },
+            "d12": { "name": "d12" },
+            "d20": { "name": "d20" },
+            "d100": { "name": "d100" }
+          }
+        },
+        "n": {
+          "name": "n",
+          "desc": "Number of die to roll, defaults to 1 (max 100)"
+        },
+        "bonus": {
+          "name": "bonus",
+          "desc": "A bonus modifier to add on to the final roll result"
+        }
       },
       "response": {
         "invalidN": "I cannot roll `__n__` dice :confused: Please pick a number between 1 - 100",
@@ -121,7 +248,10 @@
       "name": "whois",
       "desc": "In depth user analysis",
       "args": {
-        "target": "The user to lookup"
+        "target": {
+          "name": "target",
+          "desc": "The user to lookup"
+        }
       },
       "response": {
         "embedFoot": "Inquired by __u__",

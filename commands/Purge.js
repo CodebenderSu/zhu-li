@@ -14,14 +14,14 @@ module.exports = {
 		.setName(commands.purge.name)
 		.setDescription(commands.purge.desc)
     .addIntegerOption(option =>
-  		option.setName('n')
-  		.setDescription(commands.purge.args.n)
+  		option.setName(commands.purge.args.n.name)
+  		.setDescription(commands.purge.args.n.desc)
 			.setMinValue(1)
 			.setMaxValue(100)
 			.setRequired(true))
     .addUserOption(option =>
-      option.setName('target')
-      .setDescription(commands.purge.args.target))
+      option.setName(commands.purge.args.target.name)
+      .setDescription(commands.purge.args.target.desc))
   ,
 	async execute(interaction) {
     await interaction.deferReply({ ephemeral: true });
@@ -39,8 +39,8 @@ module.exports = {
 	    };
 		});
 // Setup variables
-		const n = interaction.options.getInteger('n');
-		const t = interaction.options.getUser('target');
+		const n = interaction.options.getInteger(commands.purge.args.n.name);
+		const t = interaction.options.getUser(commands.purge.args.target.name);
 // Purge logic
     if (n > 0 && n <= 100) { // /^\d+$/.test(n)
       // Purge messages by target

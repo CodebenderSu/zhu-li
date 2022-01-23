@@ -13,8 +13,8 @@ module.exports = {
 		.setName(commands.prune.name)
 		.setDescription(commands.prune.desc)
     .addIntegerOption(option =>
-  		option.setName('days')
-  		.setDescription(commands.prune.args.days)
+  		option.setName(commands.prune.args.days.name)
+  		.setDescription(commands.prune.args.days.desc)
 			.setMinValue(1)
 			.setMaxValue(30)
 			.setRequired(true))
@@ -35,7 +35,7 @@ module.exports = {
 			};
 		});
 // Setup variables
-    const d = interaction.options.getInteger('days');
+    const d = interaction.options.getInteger(commands.prune.args.days.name);
     const row = new MessageActionRow()
       .addComponents(new MessageButton()
         .setCustomId('yes')

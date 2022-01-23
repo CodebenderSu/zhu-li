@@ -13,8 +13,8 @@ module.exports = {
 		.setName(commands.whois.name)
 		.setDescription(commands.whois.desc)
     .addUserOption(option =>
-      option.setName('target')
-      .setDescription(commands.whois.args.target)
+      option.setName(commands.whois.args.target.name)
+      .setDescription(commands.whois.args.target.desc)
       .setRequired(true))
   ,
 	async execute(interaction) {
@@ -33,8 +33,8 @@ module.exports = {
 	    };
 		});
 // Setup variables
-    const user = interaction.options.getUser('target');
-    const member = interaction.options.getMember('target');
+    const user = interaction.options.getUser(commands.whois.args.target.name);
+    const member = interaction.options.getMember(commands.whois.args.target.name);
     let rolesObj = {}; // Sort roles into order they are in server settings, instead of order created
     member.roles.cache.map(r => rolesObj = { ...rolesObj, [r.rawPosition]: `\`${r.name}\`` });
     const roles = Object.values(rolesObj).reverse().join(', ');
