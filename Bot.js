@@ -3,10 +3,9 @@ const fs = require('fs');
 const path = require('path');
 const { Client, Intents, Collection } = require('discord.js');
 
-const Guild = require('./schemas/Guild');
 const handleReady = require('./events/ready');
 const handleInteraction = require('./events/interaction');
-// const handleMessage = require('./events/message');
+const handleGuildCreate = require('./events/guildCreate');
 const handleUnhandledRejection = require('./events/unhandledRejection');
 const { locale, main: { token } } = require(`./settings/${process.env.ENV_CONFIG}config.js`);
 const { app } = require(`./lang/${locale}.json`);
@@ -37,8 +36,7 @@ client.login(token)
 ////////////////////* EVENTS HANDLES */////////////////////////////
 client.once('ready', () => handleReady(client));
 client.on('interactionCreate', (interaction) => handleInteraction(interaction, client));
-// client.on('message', (message) => handleMessage(message, client));
-
+client.on('guildCreate', (guild) => handleGuildCreate(guild, client));
 client.on('unhandledRejection', (err) => handleUnhandledRejection(err));
 client.on("error", (e) => console.error('[Error]', e.message));
 client.on("warn", (e) => console.warn('[Warning]', e.message));

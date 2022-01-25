@@ -148,11 +148,22 @@
               "name": "name",
               "desc": "Name for the created panel"
             }
+          },
+          "response": {
+            "success": "Created new panel named **__name__** successfully! Use `/__command__` to add some roles",
+            "fail": "Unable to create new panel: unexpected error occurred",
+            "duplicate": "Unable to create new panel named **__name__** as one by that name already exists"
           }
         },
         "delete": {
           "name": "delete",
-          "desc": "Delete a panel"
+          "desc": "Delete a panel",
+          "response": {
+            "success": "Panel **__name__** deleted successfully",
+            "fail": "Unable to delete panel: unexpected error occured",
+            "first": "Please select a panel to delete to continue",
+            "select": "--- Select ---"
+          }
         },
         "list": {
           "name": "list",
@@ -162,6 +173,15 @@
               "name": "name",
               "desc": "Name of a panel to view roles of"
             }
+          },
+          "response": {
+            "noPanels": "This server doesn't currently have any panels.\n\nYou can create one using the `/__command__` command.",
+            "noRoles": "This panel doesn't currently have any roles.\n\nYou can add some by using the `/__command__` command.",
+            "embedAuthorPanel": "Panel list",
+            "embedAuthorRole": "Role list for panel: **__name__**",
+            "embedDescPanel": "• **__name__** - (active: `__bool__`)\n",
+            "embedDescRole": "• **__name__** - (aka: *__alias__*)\n",
+            "embedFoot": "Prepared for __u__"
           }
         }
       }
@@ -261,7 +281,7 @@
   },
   "errors": {
     "unknown": "I haven't learned that command yet. My dev is still working hard on adding new ones though. :neutral_face:",
-    "noPermsBot": "I don't have the `__p__` permission to do that :confused: \nTell an admin to do the thing",
+    "noPermsBot": "I don't have permission: `__p__` to do that :confused: \nTell an admin to do the thing",
     "noPermsUser": "You aren't allowed to use that command as you are missing the `__p__` permission :shrug:",
     "noAccess": "That command can't be used in DMs :thinking:",
     "fail": "Failed to run command; My diagnostics indicate the following issue:"

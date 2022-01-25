@@ -1,7 +1,13 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageActionRow, MessageButton, Permissions } = require('discord.js');
+const { Permissions } = require('discord.js');
 
-const { locale } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
+const panelAdd = require('./subcommands/panelAdd');
+const panelRemove = require('./subcommands/panelRemove');
+const panelCreate = require('./subcommands/panelCreate');
+const panelDelete = require('./subcommands/panelDelete');
+const panelList = require('./subcommands/panelList');
+const guildSchema = require('../schemas/guildSchema');
+const { locale, embed: { color, footerIconUrl } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
 const { commands } = require(`../lang/${locale}.json`);
 
 const reqPerms = [
@@ -70,45 +76,18 @@ module.exports = {
 		});
 // Panel subcommand handling
     switch (interaction.options.getSubcommand()) {
-      case commands.panel.sub.add.name: async () => {
-      // Setup variables
-        const role = interaction.options.getRole(commands.panel.sub.add.args.role.name);
-        const alias = interaction.options.getString(commands.panel.sub.add.args.alias.name);
-        const color = interaction.options.getString(commands.panel.sub.add.args.color.name);
-      // Create dropdown menu
-        // something
-      // POST to database
-        // something
-        await interaction.editReply('add');
-      }; break;
-      case commands.panel.sub.remove.name: async () => {
-      // Setup variables
-        const role = interaction.options.getRole(commands.panel.sub.remove.args.role.name);
-      // Create dropdown menu
-        // something
-      // POST to database
-        await interaction.editReply('remove');
-      }; break;
-      case commands.panel.sub.create.name: async () => {
-      // Setup variables
-        const name = interaction.options.getString(commands.panel.sub.create.args.name.name);
-      // POST to database
-        await interaction.editReply('create');
-      }; break;
-      case commands.panel.sub.delete.name: async () => {
-      // Create dropdown menu
-        // something
-      // POST to database
-        await interaction.editReply('delete');
-      }; break;
-      case commands.panel.sub.list.name: async () => {
-      // Setup variables
-        const name = interaction.options.getString(commands.panel.sub.list.args.name.name);
-      // Create embed response
-        await interaction.editReply('list');
-      }; break;
+      case commands.panel.sub.add.name: // ADD
+        panelAdd(interaction); break;
+      case commands.panel.sub.remove.name: // REMOVE
+        panelRemove(interaction); break;
+      case commands.panel.sub.create.name: // CREATE
+        panelCreate(interaction); break;
+      case commands.panel.sub.delete.name: // DELETE
+        panelDelete(interaction); break;
+      case commands.panel.sub.list.name: // LIST
+        panelList(interaction); break;
       default:
         return;
-    }
+    };
 	}
 };
