@@ -6,7 +6,6 @@ const panelRemove = require('./subcommands/panelRemove');
 const panelCreate = require('./subcommands/panelCreate');
 const panelDelete = require('./subcommands/panelDelete');
 const panelList = require('./subcommands/panelList');
-const guildSchema = require('../schemas/guildSchema');
 const { locale, embed: { color, footerIconUrl } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
 const { commands } = require(`../lang/${locale}.json`);
 

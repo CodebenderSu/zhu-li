@@ -74,8 +74,10 @@ module.exports = {
             };
           });
           // Cancel command on timeout
-          collector.on('end', async () => {
-            await interaction.editReply({ content: commands.prune.response.cancel, components: [] });
+          collector.on('end', async collected => {
+						if (collected.map(c => c).length === 0) {
+							await interaction.editReply({ content: commands.prune.response.cancel, components: [] });
+						};
             return;
           });
           return;

@@ -128,6 +128,14 @@
                 "grey": { "name": "grey" }
               }
             }
+          },
+          "response": {
+            "success": "Added `__role__` to the **__name__** panel successfully",
+            "fail": "Unable to add role: unexpected error occurred",
+            "duplicate": "Role `__role__` is already in the **__name__** panel :face_with_raised_eyebrow: ",
+            "cancel": "Role add request timed out :sleeping: ",
+            "select": "Please select a panel to add this role to",
+            "placeholder": "--- Select ---"
           }
         },
         "remove": {
@@ -138,6 +146,14 @@
               "name": "role",
               "desc": "Role to remove"
             }
+          },
+          "response": {
+            "success": "Removed `__role__` from the **__name__** panel successfully",
+            "fail": "Unable to remove role: unexpected error occurred",
+            "cancel": "Role removal request timed out :sleeping: ",
+            "noRole": "The **__name__** panel doesn't have `__role__` assigned to it",
+            "select": "Please select a panel to remove this role from",
+            "placeholder": "--- Select ---"
           }
         },
         "create": {
@@ -160,9 +176,10 @@
           "desc": "Delete a panel",
           "response": {
             "success": "Panel **__name__** deleted successfully",
-            "fail": "Unable to delete panel: unexpected error occured",
-            "first": "Please select a panel to delete to continue",
-            "select": "--- Select ---"
+            "fail": "Unable to delete panel: unexpected error occurred",
+            "cancel": "Deletion request timed out :sleeping: ",
+            "select": "Please select a panel to delete to continue",
+            "placeholder": "--- Select ---"
           }
         },
         "list": {
@@ -176,11 +193,12 @@
           },
           "response": {
             "noPanels": "This server doesn't currently have any panels.\n\nYou can create one using the `/__command__` command.",
+            "invalidPanel": "This server doesn't currently have a panel called **__name__**.\n\nYou can create one using the `/__command__` command.",
             "noRoles": "This panel doesn't currently have any roles.\n\nYou can add some by using the `/__command__` command.",
             "embedAuthorPanel": "Panel list",
-            "embedAuthorRole": "Role list for panel: **__name__**",
+            "embedAuthorRole": "Role list for panel: \"__name__\"",
             "embedDescPanel": "• **__name__** - (active: `__bool__`)\n",
-            "embedDescRole": "• **__name__** - (aka: *__alias__*)\n",
+            "embedDescRole": "• `__name__` - (aka: \"__alias__\")\n",
             "embedFoot": "Prepared for __u__"
           }
         }
@@ -290,8 +308,10 @@
     "Hello",
     "Hello there",
     "Hey",
+    "Heya",
     "Hey there",
     "Hi",
+    "Hiya",
     "Hi there",
     "Greetings",
     "Howdy"

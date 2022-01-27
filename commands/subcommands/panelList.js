@@ -1,36 +1,41 @@
 const { MessageEmbed } = require('discord.js');
 
-const guildSchema = require('../../schemas/guildSchema');
+const panelSchema = require('../../schemas/panelSchema');
 const { locale, embed: { color, footerIconUrl } } = require(`../../settings/${process.env.ENV_CONFIG}config.js`);
 const { commands } = require(`../../lang/${locale}.json`);
 
 const panelList = async (interaction) => {
 // Setup variables
   const name = interaction.options.getString(commands.panel.sub.list.args.name.name);
-  const data = await guildSchema.find({ id: interaction.guildId });
-  const panels = data[0].panels;
+  const panels = await panelSchema.find({ guildId: interaction.guildId });
+  const panel = await panelSchema.findOne({ guildId: interaction.guildId, name: name });
+// Check for no panels
+  if (panels.length === 0) {
+    await interaction.editReply(commands.panel.sub.list.response.noPanels
+      .replace('__command__', `${commands.panel.name} ${commands.panel.sub.create.name}`));
+    return;
+  };
+// Check for no panel by name
+  if (name && !panel) {
+    await interaction.editReply(commands.panel.sub.list.response.invalidPanel
+      .replace('__name__', name)
+      .replace('__command__', `${commands.panel.name} ${commands.panel.sub.create.name}`));
+    return;
+  };
+// Dynamic variables
   let desc = '';
   let author = commands.panel.sub.list.response.embedAuthorPanel;
-// Condition checks to adjust variables
-  // No panels
-  if (panels.length === 0) {
-    desc = commands.panel.sub.list.response.noPanels
-      .replace('__command__', `${commands.panel.name} ${commands.panel.sub.create.name}`);
-  // List panels
-} else if (!name) {
-    panels.forEach(i => desc = desc.concat(commands.panel.sub.list.response.embedDescPanel
-      .replace('__name__', i.name)
-      .replace('__bool__', i.active)));
-  } else {
-    const selectPanel = panels.find(i => i.name === name);
+  if (!name) { // Populate desc with panels
+    panels.forEach(p => desc = desc.concat(commands.panel.sub.list.response.embedDescPanel
+      .replace('__name__', p.name)
+      .replace('__bool__', p.active)));
+  } else { // Populate desc with roles
     author = commands.panel.sub.list.response.embedAuthorRole.replace('__name__', name)
-  // List roles of a panel
-    if (selectPanel && selectPanel.length > 0) {
-      selectPanel.roles.forEach(i => desc = desc.concat(commands.panel.sub.list.response.embedDescRole
-        .replace('__name__', i.name)
-        .replace('__alias__', i.alias)));
-  // No roles
-    } else {
+    if (panel.roles.length > 0) { // List roles of a panel
+      panel.roles.forEach(r => desc = desc.concat(commands.panel.sub.list.response.embedDescRole
+        .replace('__name__', r.name)
+        .replace('__alias__', r.alias)));
+    } else { // No roles
       desc = commands.panel.sub.list.response.noRoles
         .replace('__command__', `${commands.panel.name} ${commands.panel.sub.add.name}`);
     };
