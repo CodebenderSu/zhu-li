@@ -36,9 +36,10 @@ Zhu Li is a bot named after the Legend of Korra character by the same name. Like
 5. Change `clientId` and `token` to your Client ID and Client Secret respectively, from Step 2. Save.
 6. In a command line/shell, navigate to the folder containing the bot (`cd SomeDirectory`, ect.).
 7. Type `npm i`. Wait for it to finish.
-8. Type `npm run start-rd`. The bot will then register slash commands and then start up.
-9. If you don't need to deploy the slash commands, use `npm run start-r` instead.
-10. To take the bot offline, type CTRL+C in the command line.
+8. Type `npm run db` to start up MongoDB. This needs to be kept open to allow for database connections.
+9. In a new command line/shell, type `npm run start-rd`. The bot will then register slash commands and then start up.
+10. If you don't need to deploy the slash commands, use `npm run start-r` instead.
+11. To take the bot offline, type CTRL+C in the command lines.
 
 ## Adding to Your Server
 1. Navigate to the [Discord Developer Portal](https://discord.com/developers/applications)
