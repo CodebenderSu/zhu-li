@@ -44,26 +44,26 @@ Zhu Li is a bot named after the Legend of Korra character by the same name. Like
 1. Navigate to the [Discord Developer Portal](https://discord.com/developers/applications)
 2. From the left-hand side menu, go to "OAuth2". Then click "URL Generator".
 3. Choose the following scopes:
-  1. bot
-  2. applications.commands
+  > * bot
+  > * applications.commands
 4. Next, choose the following permissions:
-  * View Server Insights
-  * Manage Server
-  * Manage Roles
-  * Manage Channels
-  * Kick Members
-  * Ban Members
-  * Read Messages/View Channels
-  * Moderate Members
-  * Send Messages
-  * Send Messages in Threads
-  * Manage Messages
-  * Manage Threads
-  * Embed Links
-  * Attach Files
-  * Read Message History
-  * Mention Everyone
-  * Use Slash Commands
+  > * View Server Insights
+  > * Manage Server
+  > * Manage Roles
+  > * Manage Channels
+  > * Kick Members
+  > * Ban Members
+  > * Read Messages/View Channels
+  > * Moderate Members
+  > * Send Messages
+  > * Send Messages in Threads
+  > * Manage Messages
+  > * Manage Threads
+  > * Embed Links
+  > * Attach Files
+  > * Read Message History
+  > * Mention Everyone
+  > * Use Slash Commands
 5. Copy the link that is generated in the "Generated URL" box.
 6. In a new tab, paste the link and navigate to it.
 7. Select a server to add the bot to and click "Continue".
