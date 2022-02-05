@@ -44,8 +44,8 @@ Zhu Li is a bot named after the Legend of Korra character by the same name. Like
 1. Navigate to the [Discord Developer Portal](https://discord.com/developers/applications)
 2. From the left-hand side menu, go to "OAuth2". Then click "URL Generator".
 3. Choose the following scopes:
-  * bot
-  * applications.commands
+  1. bot
+  2. applications.commands
 4. Next, choose the following permissions:
   * View Server Insights
   * Manage Server
