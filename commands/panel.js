@@ -7,7 +7,7 @@ const panelCreate = require('./subcommands/panelCreate');
 const panelDelete = require('./subcommands/panelDelete');
 const panelList = require('./subcommands/panelList');
 const { locale, embed: { color, footerIconUrl } } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
-const { commands } = require(`../lang/${locale}.json`);
+const { commands, errors } = require(`../lang/${locale}.json`);
 
 const reqPerms = [
 	Permissions.FLAGS.MANAGE_ROLES
