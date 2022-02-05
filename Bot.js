@@ -13,9 +13,7 @@ const { app } = require(`./lang/${locale}.json`);
 /////////////////////* BOT INITIALIZATION *///////////////////////
 const client = new Client({
 	intents: [
-		Intents.FLAGS.GUILDS,
-		Intents.FLAGS.GUILD_VOICE_STATES,
-		Intents.FLAGS.GUILD_MESSAGE_REACTIONS
+		Intents.FLAGS.GUILDS
 	]
 });
 
@@ -40,7 +38,6 @@ client.on('guildCreate', (guild) => handleGuildCreate(guild, client));
 client.on('unhandledRejection', (err) => handleUnhandledRejection(err));
 client.on("error", (e) => console.error('[Error]', e.message));
 client.on("warn", (e) => console.warn('[Warning]', e.message));
-//client.on("debug", (e) => console.info('[Debug]', e.message));
 
 module.exports = { client };
 ///////////////////////////* SERVER PURGE *////////////////////////

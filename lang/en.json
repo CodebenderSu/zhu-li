@@ -1,7 +1,8 @@
 {
   "app": {
     "start": "Getting you plugged in...",
-    "ready": "Logged in as: __u__"
+    "ready": "Logged in as: __u__",
+    "dbConnected": "Connected to MongoDB successfully"
   },
   "activities": {
     "PLAYING": "Playing",
@@ -296,12 +297,14 @@
     }
   },
   "errors": {
-    "unknown": "I haven't learned that command yet. My dev is still working hard on adding new ones though. :neutral_face:",
+    "dbFail": "Failed to connect to MongoDB; encountered the following error:",
+    "activityFail": "Failed to set activity status; encountered the following error:",
     "noPermsBot": "I don't have permission: `__p__` to do that :confused: \nTell an admin to do the thing",
     "noPermsUser": "You aren't allowed to use that command as you are missing the `__p__` permission :shrug:",
     "noAccess": "That command can't be used in DMs :thinking:",
+    "cmdUnknown": "I haven't learned that command yet. My dev is still working hard on adding new ones though. :neutral_face:",
     "cmdFail": "There was an error while executing this command!",
-    "fail": "Failed to run command; My diagnostics indicate the following issue:"
+    "fail": "An unknown error occurred"
   },
   "greetings": [
     "Hello",
