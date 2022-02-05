@@ -131,32 +131,32 @@ Provides an embed with various details about the Discord server. CANNOT be used 
 ### **/panel**
 Root command that has five subcommands:
 > #### **/panel create** *{name}*
-Create a new panel for your guild.
+> Create a new panel for your guild.
 > ##### Args
-* **name** - *Required* - The name for your new panel
+> * **name** - *Required* - The name for your new panel
 >
 > ---
->#### **/panel delete**
-Deletes a panel selected from a dropdown menu.
+> #### **/panel delete**
+> Deletes a panel selected from a dropdown menu.
 >
 > ---
->#### **/panel addrole** *{role} [alias]*
-Adds a role to an existing panel.
+> #### **/panel addrole** *{role} [alias]*
+> Adds a role to an existing panel.
 > ##### Args
-* **role** - *Required* - The role to add
-* **alias** - An alias or alternative name for the role for use in the panel dropdown
+> * **role** - *Required* - The role to add
+> * **alias** - An alias or alternative name for the role for use in the panel dropdown
 >
 > ---
 > #### **/panel removerole** *{role}*
-Removes a role from an existing panel.
+> Removes a role from an existing panel.
 > ##### Args
-* **role** - *Required* - The role to remove
+> * **role** - *Required* - The role to remove
 >
 > ---
 > #### **/panel list** *[name]*
-Either lists all panels in your guild, or all roles in a panel.
+> Either lists all panels in your guild, or all roles in a panel.
 > ##### Args
-* **name** - Name of an existing panel
+> * **name** - Name of an existing panel
 
 ---
 ### **/ping**
