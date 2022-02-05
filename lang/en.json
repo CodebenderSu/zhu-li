@@ -70,17 +70,25 @@
         "footIcon": {
           "name": "footicon",
           "desc": "URL for footer icon"
+        },
+        "panel": {
+          "name": "panel",
+          "desc": "Attach a panel to the embed"
         }
       },
       "response": {
-        "confirm": "Please confirm that the embed looks correct",
+        "success": "Embed generated",
         "cancel": "Embed creation cancelled :frowning: ",
         "invalidDesc": "The description you provided was invalid",
         "limitTitle": "Exceeded `256` character limit for title",
         "limitName": "Exceeded `256` character limit for author name",
         "limitDesc": "Exceeded `4096` character limit for description",
         "limitFoot": "Exceeded `2048` character limit for footer text",
-        "limitEmbed": "Your embed exceeds the `6000` character limit :confused: "
+        "limitEmbed": "Your embed exceeds the `6000` character limit :confused: ",
+        "panelPlaceholder": "--- Select ---",
+        "panelInvalid": "There is no panel named **__name__** \nUse `/__command__` to create one",
+        "panelEmpty": "The **__name__** panel has no roles \nYou can use `/__command__` to add some",
+        "panelUpdateSuccess": "Your roles have been updated successfully"
       }
     },
     "help": {
@@ -117,16 +125,6 @@
             "alias": {
               "name": "alias",
               "desc": "Customize the name of the role"
-            },
-            "color": {
-              "name": "color",
-              "desc": "Color of the button for the role",
-              "choices": {
-                "green": { "name": "green" },
-                "blue": { "name": "blue" },
-                "red": { "name": "red" },
-                "grey": { "name": "grey" }
-              }
             }
           },
           "response": {
@@ -197,7 +195,7 @@
             "noRoles": "This panel doesn't currently have any roles.\n\nYou can add some by using the `/__command__` command.",
             "embedAuthorPanel": "Panel list",
             "embedAuthorRole": "Role list for panel: \"__name__\"",
-            "embedDescPanel": "• **__name__** - (active: `__bool__`)\n",
+            "embedDescPanel": "• **__name__**\n",
             "embedDescRole": "• `__name__` - (aka: \"__alias__\")\n",
             "embedFoot": "Prepared for __u__"
           }
@@ -302,6 +300,7 @@
     "noPermsBot": "I don't have permission: `__p__` to do that :confused: \nTell an admin to do the thing",
     "noPermsUser": "You aren't allowed to use that command as you are missing the `__p__` permission :shrug:",
     "noAccess": "That command can't be used in DMs :thinking:",
+    "cmdFail": "There was an error while executing this command!",
     "fail": "Failed to run command; My diagnostics indicate the following issue:"
   },
   "greetings": [

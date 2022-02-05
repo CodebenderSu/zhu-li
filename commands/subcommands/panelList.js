@@ -27,8 +27,7 @@ const panelList = async (interaction) => {
   let author = commands.panel.sub.list.response.embedAuthorPanel;
   if (!name) { // Populate desc with panels
     panels.forEach(p => desc = desc.concat(commands.panel.sub.list.response.embedDescPanel
-      .replace('__name__', p.name)
-      .replace('__bool__', p.active)));
+      .replace('__name__', p.name)));
   } else { // Populate desc with roles
     author = commands.panel.sub.list.response.embedAuthorRole.replace('__name__', name)
     if (panel.roles.length > 0) { // List roles of a panel

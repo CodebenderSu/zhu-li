@@ -3,18 +3,12 @@ const { Schema, model } = require('mongoose');
 const panelSchema = new Schema({
   guildId: { type: String, required: true },
   name: { type: String, required: true },
-  active: { type: Boolean, default: false },
   messageId: { type: String, default: null },
   roles: [{
     name: { type: String, required: true },
     roleId: { type: String, required: true },
-    alias: String,
-    color: { type: String, default: null }
-  }],
-  // prefix: { type: String, default: '!' },
-  // ownerID: String,
-  // blackBoxChannel: [ String ],
-  // infoChapters: [ Schema.Types.ObjectId ]
+    alias: String
+  }]
 });
 
 module.exports = model('panel', panelSchema);

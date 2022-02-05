@@ -18,45 +18,38 @@ module.exports = {
 		.setName(commands.panel.name)
 		.setDescription(commands.panel.desc)
     .addSubcommand(subcommand =>
-		    subcommand.setName(commands.panel.sub.add.name)
-        .setDescription(commands.panel.sub.add.desc)
-        .addRoleOption(option =>
-          option.setName(commands.panel.sub.add.args.role.name)
-          .setDescription(commands.panel.sub.add.args.role.desc)
-          .setRequired(true))
-        .addStringOption(option =>
-          option.setName(commands.panel.sub.add.args.alias.name)
-          .setDescription(commands.panel.sub.add.args.alias.desc))
-        .addStringOption(option =>
-          option.setName(commands.panel.sub.add.args.color.name)
-          .setDescription(commands.panel.sub.add.args.color.desc)
-          .addChoice(commands.panel.sub.add.args.color.choices.green.name, 'SUCCESS')
-          .addChoice(commands.panel.sub.add.args.color.choices.blue.name, 'PRIMARY')
-          .addChoice(commands.panel.sub.add.args.color.choices.red.name, 'DANGER')
-          .addChoice(commands.panel.sub.add.args.color.choices.grey.name, 'SECONDARY')))
+	    subcommand.setName(commands.panel.sub.add.name)
+      .setDescription(commands.panel.sub.add.desc)
+      .addRoleOption(option =>
+        option.setName(commands.panel.sub.add.args.role.name)
+        .setDescription(commands.panel.sub.add.args.role.desc)
+        .setRequired(true))
+      .addStringOption(option =>
+        option.setName(commands.panel.sub.add.args.alias.name)
+        .setDescription(commands.panel.sub.add.args.alias.desc)))
     .addSubcommand(subcommand =>
-		    subcommand.setName(commands.panel.sub.remove.name)
-        .setDescription(commands.panel.sub.remove.desc)
-        .addRoleOption(option =>
-          option.setName(commands.panel.sub.remove.args.role.name)
-          .setDescription(commands.panel.sub.remove.args.role.desc)
-          .setRequired(true)))
+	    subcommand.setName(commands.panel.sub.remove.name)
+      .setDescription(commands.panel.sub.remove.desc)
+      .addRoleOption(option =>
+        option.setName(commands.panel.sub.remove.args.role.name)
+        .setDescription(commands.panel.sub.remove.args.role.desc)
+        .setRequired(true)))
     .addSubcommand(subcommand =>
-		    subcommand.setName(commands.panel.sub.create.name)
-        .setDescription(commands.panel.sub.create.desc)
-        .addStringOption(option =>
-          option.setName(commands.panel.sub.create.args.name.name)
-          .setDescription(commands.panel.sub.create.args.name.desc)
-          .setRequired(true)))
+	    subcommand.setName(commands.panel.sub.create.name)
+      .setDescription(commands.panel.sub.create.desc)
+      .addStringOption(option =>
+        option.setName(commands.panel.sub.create.args.name.name)
+        .setDescription(commands.panel.sub.create.args.name.desc)
+        .setRequired(true)))
     .addSubcommand(subcommand =>
-		    subcommand.setName(commands.panel.sub.delete.name)
-        .setDescription(commands.panel.sub.delete.desc))
+	    subcommand.setName(commands.panel.sub.delete.name)
+      .setDescription(commands.panel.sub.delete.desc))
     .addSubcommand(subcommand =>
-		    subcommand.setName(commands.panel.sub.list.name)
-        .setDescription(commands.panel.sub.list.desc)
-        .addStringOption(option =>
-          option.setName(commands.panel.sub.list.args.name.name)
-          .setDescription(commands.panel.sub.list.args.name.desc)))
+	    subcommand.setName(commands.panel.sub.list.name)
+      .setDescription(commands.panel.sub.list.desc)
+      .addStringOption(option =>
+        option.setName(commands.panel.sub.list.args.name.name)
+        .setDescription(commands.panel.sub.list.args.name.desc)))
   ,
 	async execute(interaction) {
 		await interaction.deferReply({ ephemeral: true });

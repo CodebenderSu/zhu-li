@@ -1,8 +1,13 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, MessageActionRow, MessageSelectMenu, Permissions } = require('discord.js');
 
+const panelSchema = require('../schemas/panelSchema');
 const { locale, embed: { color }, validColorStr } = require(`../settings/${process.env.ENV_CONFIG}config.js`);
-const { commands } = require(`../lang/${locale}.json`);
+const { commands, errors } = require(`../lang/${locale}.json`);
+
+const reqPerms = [
+	Permissions.FLAGS.MANAGE_ROLES
+];
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -45,6 +50,9 @@ module.exports = {
     .addStringOption(option =>
       option.setName(commands.embed.args.footIcon.name)
       .setDescription(commands.embed.args.footIcon.desc))
+		.addStringOption(option =>
+			option.setName(commands.embed.args.panel.name)
+			.setDescription(commands.embed.args.panel.desc))
   ,
 	async execute(interaction) {
 		await interaction.deferReply();
@@ -70,6 +78,7 @@ module.exports = {
       desc = commands.embed.response.invalidDesc;
     };
     const footText = options.getString(commands.embed.args.footText.name);
+		const panelName = options.getString(commands.embed.args.panel.name);
 // Create embed response
     const newEmbed = new MessageEmbed()
       .setColor(optColor ? colorIsValid(optColor.toUpperCase()) ? optColor.toUpperCase() : color : color)
@@ -92,6 +101,57 @@ module.exports = {
     if (newEmbed.length > 6000) {
       await interaction.editReply(commands.embed.response.limitEmbed); return;
     };
-    await interaction.editReply({ embeds: [newEmbed] });
+// Handle panel logic
+		let dropdown = [];
+		if (panelName) {
+	    if (!interaction.guild) { // Handle DM no access
+				await interaction.editReply({ embeds: [newEmbed] });
+	      await interaction.followUp({ content: errors.noAccess, ephemeral: true }); return;
+	    };
+			reqPerms.forEach(async perm => { // Handle no permission
+				if (!interaction.guild.me.permissions.has(perm)) {
+					await interaction.editReply({ embeds: [newEmbed] });
+					await interaction.followUp({ content: errors.noPermsBot.replace('__p__', perm), ephemeral: true }); return;
+				};
+				if (!interaction.member.permissions.has(perm)) {
+					await interaction.editReply({ embeds: [newEmbed] });
+					await interaction.followUp({ content: errors.noPermsUser.replace('__p__', perm), ephemeral: true }); return;
+				};
+			});
+			const panel = await panelSchema.findOne({ guildId: interaction.guildId, name: panelName });
+			if (!panel) { // Handle invalid panel name
+				await interaction.editReply({ embeds: [newEmbed] });
+				await interaction.followUp({
+					content: commands.embed.response.panelInvalid
+						.replace('__name__', panelName)
+						.replace('__command__', `${commands.panel.name} ${commands.panel.sub.create.name}`),
+					ephemeral: true });
+				return;
+			};
+			if (panel.roles.length === 0) { // Handle empty panel
+				await interaction.editReply({ embeds: [newEmbed] });
+				await interaction.followUp({
+					content: commands.embed.response.panelEmpty
+						.replace('__name__', panelName)
+						.replace('__command__', `${commands.panel.name} ${commands.panel.sub.add.name}`),
+					ephemeral: true });
+				return;
+			};
+			// Create panel dropdown menu
+	      let panelOptions = [];
+	      panel.roles.forEach(r => panelOptions.push({ label: r.alias, value: r.roleId }));
+	      dropdown.push(new MessageActionRow()
+	        .addComponents(
+	          new MessageSelectMenu()
+	            .setCustomId(`embed-panel`)
+	            .setPlaceholder(commands.embed.response.panelPlaceholder)
+							.setMaxValues(panelOptions.length)
+							.setMinValues(0)
+	            .addOptions(panelOptions)
+	        ));
+		};
+// Create final response
+		await interaction.editReply({ embeds: [newEmbed], components: dropdown });
+		await interaction.followUp({ content: commands.embed.response.success, ephemeral: true });
 	}
 };

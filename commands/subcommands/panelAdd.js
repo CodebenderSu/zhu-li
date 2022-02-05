@@ -8,12 +8,10 @@ const panelAdd = async (interaction) => {
 // Setup variables
   const role = interaction.options.getRole(commands.panel.sub.add.args.role.name);
   const alias = interaction.options.getString(commands.panel.sub.add.args.alias.name);
-  const color = interaction.options.getString(commands.panel.sub.add.args.color.name);
   const newRoleObj = {
     name: role.name,
     roleId: role.id,
-    alias: alias ? alias : role.name,
-    color
+    alias: alias ? alias : role.name
   };
   const panels = await panelSchema.find({ guildId: interaction.guildId });
 // Create dropdown menu
