@@ -10,6 +10,7 @@ Zhu Li is a bot named after the Legend of Korra character by the same name. Like
   * [**Embed**](#embed-desc-color-title-url-authname-authicon-authurl-thumbnail-image-timestamp-foottext-footicon) - Create a custom message embed
   * [**Help**](#help) - Lists all available commands and description
   * [**Inspect**](#inspect) - Provides server diagnostics
+  * [**Panel**](#panel) - Reaction role management
   * [**Ping**](#ping) - Pong!
   * [**Prune**](#prune-days) - Prune inactive members
   * [**Purge**](#purge-n-target) - Deletes 'n' number of messages, up to 100 at a time (<14 days old)
@@ -18,10 +19,6 @@ Zhu Li is a bot named after the Legend of Korra character by the same name. Like
 * Change the language of the bot responses by creating your own /lang .json file
 * Customize bot activity status
 * Easy to use
-
-Planned features include:
-
-* Self-assigned (reaction) roles
 
 ## Dependencies
   * Node v. 16.13.2
@@ -43,13 +40,42 @@ Planned features include:
 9. If you don't need to deploy the slash commands, use `npm run start-r` instead.
 10. To take the bot offline, type CTRL+C in the command line.
 
+## Adding to Your Server
+1. Navigate to the [Discord Developer Portal](https://discord.com/developers/applications)
+2. From the left-hand side menu, go to "OAuth2". Then click "URL Generator".
+3. Choose the following scopes:
+  * bot
+  * applications.commands
+4. Next, choose the following permissions:
+  * View Server Insights
+  * Manage Server
+  * Manage Roles
+  * Manage Channels
+  * Kick Members
+  * Ban Members
+  * Read Messages/View Channels
+  * Moderate Members
+  * Send Messages
+  * Send Messages in Threads
+  * Manage Messages
+  * Manage Threads
+  * Embed Links
+  * Attach Files
+  * Read Message History
+  * Mention Everyone
+  * Use Slash Commands
+5. Copy the link that is generated in the "Generated URL" box.
+6. In a new tab, paste the link and navigate to it.
+7. Select a server to add the bot to and click "Continue".
+8. Click "Authorize".
+
 ## End User Command Guide
 
 ### **/bravo**
 Simple command in which the bot will respond with a gif of Zhu Li unenthusiastically applauding.
 
 ---
-### **/embed** *{desc} [color, title, url, authname, authicon, authurl, thumbnail, image, timestamp, foottext, footicon]*
+### **/embed** *{desc} [color, title, url, authname, authicon, authurl, thumbnail, image, timestamp, foottext, footicon, panel]*
 A feature-rich command that allows you to build and customize your own Discord embed messages. The embed cannot exceed a combined total of 6000 characters.
 #### Args
 * **desc** - *Required* - The main body of your embed. Cannot exceed 4096 characters.
@@ -91,6 +117,7 @@ A feature-rich command that allows you to build and customize your own Discord e
 * **timestamp** - (`true`, `false`) - Whether to include a timestamp in the embed. Defaults to false.
 * **foottext** - The text in the footer of the embed. Limited to 2048 characters.
 * **footicon** - The URL for adding an icon next to the footer text.
+* **panel** - A valid name of an existing panel for your guild. Use `/panel list` for a listing.
 
 ---
 ### **/help**
@@ -99,6 +126,37 @@ Provides an embed with a listing of available commands and brief description of 
 ---
 ### **/inspect**
 Provides an embed with various details about the Discord server. CANNOT be used in DMs.
+
+---
+### **/panel**
+Root command that has five subcommands:
+> #### **/panel create** *{name}*
+Create a new panel for your guild.
+> ##### Args
+* **name** - *Required* - The name for your new panel
+>
+> ---
+>#### **/panel delete**
+Deletes a panel selected from a dropdown menu.
+>
+> ---
+>#### **/panel addrole** *{role} [alias]*
+Adds a role to an existing panel.
+> ##### Args
+* **role** - *Required* - The role to add
+* **alias** - An alias or alternative name for the role for use in the panel dropdown
+>
+> ---
+> #### **/panel removerole** *{role}*
+Removes a role from an existing panel.
+> ##### Args
+* **role** - *Required* - The role to remove
+>
+> ---
+> #### **/panel list** *[name]*
+Either lists all panels in your guild, or all roles in a panel.
+> ##### Args
+* **name** - Name of an existing panel
 
 ---
 ### **/ping**
