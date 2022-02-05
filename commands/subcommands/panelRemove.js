@@ -8,6 +8,11 @@ const panelRemove = async (interaction) => {
 // Setup variables
   const role = interaction.options.getRole(commands.panel.sub.remove.args.role.name);
   const panels = await panelSchema.find({ guildId: interaction.guildId });
+// Handle no panels
+  if (panels.length === 0) {
+    await interaction.editReply({ content: commands.panel.sub.remove.response.noPanels });
+    return;
+  };
 // Create dropdown menu
   let options = [];
   panels.forEach(p => options.push({ label: p.name, value: p.name }));

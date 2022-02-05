@@ -5,7 +5,7 @@ const { Client, Intents, Collection } = require('discord.js');
 
 const handleReady = require('./events/ready');
 const handleInteraction = require('./events/interaction');
-const handleGuildCreate = require('./events/guildCreate');
+const handleGuildDelete = require('./events/guildDelete');
 const handleUnhandledRejection = require('./events/unhandledRejection');
 const { locale, main: { token } } = require(`./settings/${process.env.ENV_CONFIG}config.js`);
 const { app } = require(`./lang/${locale}.json`);
@@ -30,11 +30,11 @@ for (const file of commandFiles) {
 /////////////////////////* BOT LOGIN */////////////////////////////
 client.login(token)
   .then(console.log(app.start))
-  .catch(console.error);
+  .catch(err => console.error(app.fail, err));
 ////////////////////* EVENTS HANDLES */////////////////////////////
 client.once('ready', () => handleReady(client));
 client.on('interactionCreate', (interaction) => handleInteraction(interaction, client));
-client.on('guildCreate', (guild) => handleGuildCreate(guild, client));
+client.on('guildDelete', (guild) => handleGuildDelete(guild, client));
 client.on('unhandledRejection', (err) => handleUnhandledRejection(err));
 client.on("error", (e) => console.error('[Error]', e.message));
 client.on("warn", (e) => console.warn('[Warning]', e.message));

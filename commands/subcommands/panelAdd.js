@@ -14,6 +14,11 @@ const panelAdd = async (interaction) => {
     alias: alias ? alias : role.name
   };
   const panels = await panelSchema.find({ guildId: interaction.guildId });
+// Handle no panels
+  if (panels.length === 0) {
+    await interaction.editReply({ content: commands.panel.sub.add.response.noPanels.replace('__command__', `${commands.panel.name} ${commands.panel.sub.create.name}`) });
+    return;
+  };
 // Create dropdown menu
   let options = [];
   panels.forEach(p => options.push({ label: p.name, value: p.name }));

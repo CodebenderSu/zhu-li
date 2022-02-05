@@ -7,6 +7,11 @@ const { commands } = require(`../../lang/${locale}.json`);
 const panelDelete = async (interaction) => {
 // Setup variables
   const panels = await panelSchema.find({ guildId: interaction.guildId });
+// Handle no panels
+  if (panels.length === 0) {
+    await interaction.editReply({ content: commands.panel.sub.delete.response.noPanels });
+    return;
+  };
 // Create dropdown menu
   let options = [];
   panels.forEach(p => options.push({ label: p.name, value: p.name }));

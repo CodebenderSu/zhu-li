@@ -1,8 +1,17 @@
 {
   "app": {
-    "start": "Getting you plugged in...",
-    "ready": "Logged in as: __u__",
-    "dbConnected": "Connected to MongoDB successfully"
+    "start": "[App] Getting you plugged in...",
+    "fail": "[App] Failed to startup; encountered the following error: ",
+    "ready": "[App] Logged in as: __u__",
+    "activityFail": "[App] Failed to set activity status; encountered the following error: "
+  },
+  "db": {
+    "pending": "[DB] Attempting to connect to MongoDB...",
+    "success": "[DB] Connected to MongoDB successfully",
+    "fail": "[DB] Failed to connect to MongoDB; encountered the following error: ",
+    "kicked": "[DB] Removed from Guild (id: __id__); Removing entries from database...",
+    "deleteSuccess": "[DB] Removed all entries for Guild (id: __id__) successfully",
+    "deleteFail": "[DB] Failed to remove entries for Guild (id: __id__); encountered the following error: "
   },
   "activities": {
     "PLAYING": "Playing",
@@ -11,6 +20,14 @@
     "WATCHING": "Watching",
     "CUSTOM": "",
     "COMPETING": "Competing in"
+  },
+  "errors": {
+    "noPermsBot": "I don't have permission: `__p__` to do that :confused: \nTell an admin to do the thing",
+    "noPermsUser": "You aren't allowed to use that command as you are missing the `__p__` permission :shrug:",
+    "noAccess": "That command can't be used in DMs :thinking:",
+    "cmdUnknown": "I haven't learned that command yet. My dev is still working hard on adding new ones though. :neutral_face:",
+    "cmdFail": "There was an error while executing this command!",
+    "fail": "An unknown error occurred"
   },
   "commands": {
     "bravo": {
@@ -131,6 +148,7 @@
           "response": {
             "success": "Added `__role__` to the **__name__** panel successfully",
             "fail": "Unable to add role: unexpected error occurred",
+            "noPanels": "Your guild has no panels to add roles to \n\nUse `/__command__` to create one",
             "duplicate": "Role `__role__` is already in the **__name__** panel :face_with_raised_eyebrow: ",
             "cancel": "Role add request timed out :sleeping: ",
             "select": "Please select a panel to add this role to",
@@ -149,6 +167,7 @@
           "response": {
             "success": "Removed `__role__` from the **__name__** panel successfully",
             "fail": "Unable to remove role: unexpected error occurred",
+            "noPanels": "Your guild has no panels to remove roles from",
             "cancel": "Role removal request timed out :sleeping: ",
             "noRole": "The **__name__** panel doesn't have `__role__` assigned to it",
             "select": "Please select a panel to remove this role from",
@@ -176,6 +195,7 @@
           "response": {
             "success": "Panel **__name__** deleted successfully",
             "fail": "Unable to delete panel: unexpected error occurred",
+            "noPanels": "Your guild has no panels to delete",
             "cancel": "Deletion request timed out :sleeping: ",
             "select": "Please select a panel to delete to continue",
             "placeholder": "--- Select ---"
@@ -295,16 +315,6 @@
         "embedDesc": "**Display Name:** __m_displayName__\n**Is Bot:** __u_bot__\n**Deafened:** __m_voice_deaf__\n**Muted:** __m_voice_mute__\n**Voice Channel:** __m_voice_channel__\n\n**Roles:** __m_roles__\n**Joined Server:** __m_joinedAt__\n**Joined Discord:** __u_createdAt__"
       }
     }
-  },
-  "errors": {
-    "dbFail": "Failed to connect to MongoDB; encountered the following error:",
-    "activityFail": "Failed to set activity status; encountered the following error:",
-    "noPermsBot": "I don't have permission: `__p__` to do that :confused: \nTell an admin to do the thing",
-    "noPermsUser": "You aren't allowed to use that command as you are missing the `__p__` permission :shrug:",
-    "noAccess": "That command can't be used in DMs :thinking:",
-    "cmdUnknown": "I haven't learned that command yet. My dev is still working hard on adding new ones though. :neutral_face:",
-    "cmdFail": "There was an error while executing this command!",
-    "fail": "An unknown error occurred"
   },
   "greetings": [
     "Hello",
