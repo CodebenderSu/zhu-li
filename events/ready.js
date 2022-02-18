@@ -18,7 +18,7 @@ const handleReady = async (client) => {
     console.error(db.fail, err);
   };
 ///////////////////////* BOT READY *//////////////////////////
-  console.log(app.ready.replace('__u__', client.user.tag));
+  console.log(app.ready.replace('__u__', client.user.tag).replace('__n__', client.guilds.cache.size));
   try {
     client.user.setActivity({
       type: activity.type,

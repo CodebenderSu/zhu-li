@@ -2,7 +2,7 @@
   "app": {
     "start": "[App] Getting you plugged in...",
     "fail": "[App] Failed to startup; encountered the following error: ",
-    "ready": "[App] Logged in as: __u__",
+    "ready": "[App] Logged in as: __u__, connected to __n__ guilds",
     "activityFail": "[App] Failed to set activity status; encountered the following error: "
   },
   "db": {
